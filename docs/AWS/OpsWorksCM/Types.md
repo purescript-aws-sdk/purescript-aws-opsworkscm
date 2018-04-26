@@ -10,7 +10,7 @@ options :: Options
 
 ``` purescript
 newtype AccountAttribute
-  = AccountAttribute { "Name" :: NullOrUndefined (String), "Maximum" :: NullOrUndefined (Int), "Used" :: NullOrUndefined (Int) }
+  = AccountAttribute { "Name" :: Maybe (String), "Maximum" :: Maybe (Int), "Used" :: Maybe (Int) }
 ```
 
 <p>Stores account attributes. </p>
@@ -35,7 +35,7 @@ Constructs AccountAttribute from required parameters
 #### `newAccountAttribute'`
 
 ``` purescript
-newAccountAttribute' :: ({ "Name" :: NullOrUndefined (String), "Maximum" :: NullOrUndefined (Int), "Used" :: NullOrUndefined (Int) } -> { "Name" :: NullOrUndefined (String), "Maximum" :: NullOrUndefined (Int), "Used" :: NullOrUndefined (Int) }) -> AccountAttribute
+newAccountAttribute' :: ({ "Name" :: Maybe (String), "Maximum" :: Maybe (Int), "Used" :: Maybe (Int) } -> { "Name" :: Maybe (String), "Maximum" :: Maybe (Int), "Used" :: Maybe (Int) }) -> AccountAttribute
 ```
 
 Constructs AccountAttribute's fields from required parameters
@@ -94,7 +94,7 @@ Constructs AssociateNodeRequest's fields from required parameters
 
 ``` purescript
 newtype AssociateNodeResponse
-  = AssociateNodeResponse { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) }
+  = AssociateNodeResponse { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) }
 ```
 
 ##### Instances
@@ -117,7 +117,7 @@ Constructs AssociateNodeResponse from required parameters
 #### `newAssociateNodeResponse'`
 
 ``` purescript
-newAssociateNodeResponse' :: ({ "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) } -> { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) }) -> AssociateNodeResponse
+newAssociateNodeResponse' :: ({ "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) } -> { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) }) -> AssociateNodeResponse
 ```
 
 Constructs AssociateNodeResponse's fields from required parameters
@@ -158,7 +158,7 @@ Encode AttributeValue
 
 ``` purescript
 newtype Backup
-  = Backup { "BackupArn" :: NullOrUndefined (String), "BackupId" :: NullOrUndefined (BackupId), "BackupType" :: NullOrUndefined (BackupType), "CreatedAt" :: NullOrUndefined (Timestamp), "Description" :: NullOrUndefined (String), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineVersion" :: NullOrUndefined (String), "InstanceProfileArn" :: NullOrUndefined (String), "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (String), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "S3DataSize" :: NullOrUndefined (Int), "S3DataUrl" :: NullOrUndefined (String), "S3LogUrl" :: NullOrUndefined (String), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServerName" :: NullOrUndefined (ServerName), "ServiceRoleArn" :: NullOrUndefined (String), "Status" :: NullOrUndefined (BackupStatus), "StatusDescription" :: NullOrUndefined (String), "SubnetIds" :: NullOrUndefined (Strings), "ToolsVersion" :: NullOrUndefined (String), "UserArn" :: NullOrUndefined (String) }
+  = Backup { "BackupArn" :: Maybe (String), "BackupId" :: Maybe (BackupId), "BackupType" :: Maybe (BackupType), "CreatedAt" :: Maybe (Timestamp), "Description" :: Maybe (String), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineVersion" :: Maybe (String), "InstanceProfileArn" :: Maybe (String), "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (String), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "S3DataSize" :: Maybe (Int), "S3DataUrl" :: Maybe (String), "S3LogUrl" :: Maybe (String), "SecurityGroupIds" :: Maybe (Strings), "ServerName" :: Maybe (ServerName), "ServiceRoleArn" :: Maybe (String), "Status" :: Maybe (BackupStatus), "StatusDescription" :: Maybe (String), "SubnetIds" :: Maybe (Strings), "ToolsVersion" :: Maybe (String), "UserArn" :: Maybe (String) }
 ```
 
 <p>Describes a single backup. </p>
@@ -183,7 +183,7 @@ Constructs Backup from required parameters
 #### `newBackup'`
 
 ``` purescript
-newBackup' :: ({ "BackupArn" :: NullOrUndefined (String), "BackupId" :: NullOrUndefined (BackupId), "BackupType" :: NullOrUndefined (BackupType), "CreatedAt" :: NullOrUndefined (Timestamp), "Description" :: NullOrUndefined (String), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineVersion" :: NullOrUndefined (String), "InstanceProfileArn" :: NullOrUndefined (String), "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (String), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "S3DataSize" :: NullOrUndefined (Int), "S3DataUrl" :: NullOrUndefined (String), "S3LogUrl" :: NullOrUndefined (String), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServerName" :: NullOrUndefined (ServerName), "ServiceRoleArn" :: NullOrUndefined (String), "Status" :: NullOrUndefined (BackupStatus), "StatusDescription" :: NullOrUndefined (String), "SubnetIds" :: NullOrUndefined (Strings), "ToolsVersion" :: NullOrUndefined (String), "UserArn" :: NullOrUndefined (String) } -> { "BackupArn" :: NullOrUndefined (String), "BackupId" :: NullOrUndefined (BackupId), "BackupType" :: NullOrUndefined (BackupType), "CreatedAt" :: NullOrUndefined (Timestamp), "Description" :: NullOrUndefined (String), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineVersion" :: NullOrUndefined (String), "InstanceProfileArn" :: NullOrUndefined (String), "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (String), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "S3DataSize" :: NullOrUndefined (Int), "S3DataUrl" :: NullOrUndefined (String), "S3LogUrl" :: NullOrUndefined (String), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServerName" :: NullOrUndefined (ServerName), "ServiceRoleArn" :: NullOrUndefined (String), "Status" :: NullOrUndefined (BackupStatus), "StatusDescription" :: NullOrUndefined (String), "SubnetIds" :: NullOrUndefined (Strings), "ToolsVersion" :: NullOrUndefined (String), "UserArn" :: NullOrUndefined (String) }) -> Backup
+newBackup' :: ({ "BackupArn" :: Maybe (String), "BackupId" :: Maybe (BackupId), "BackupType" :: Maybe (BackupType), "CreatedAt" :: Maybe (Timestamp), "Description" :: Maybe (String), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineVersion" :: Maybe (String), "InstanceProfileArn" :: Maybe (String), "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (String), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "S3DataSize" :: Maybe (Int), "S3DataUrl" :: Maybe (String), "S3LogUrl" :: Maybe (String), "SecurityGroupIds" :: Maybe (Strings), "ServerName" :: Maybe (ServerName), "ServiceRoleArn" :: Maybe (String), "Status" :: Maybe (BackupStatus), "StatusDescription" :: Maybe (String), "SubnetIds" :: Maybe (Strings), "ToolsVersion" :: Maybe (String), "UserArn" :: Maybe (String) } -> { "BackupArn" :: Maybe (String), "BackupId" :: Maybe (BackupId), "BackupType" :: Maybe (BackupType), "CreatedAt" :: Maybe (Timestamp), "Description" :: Maybe (String), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineVersion" :: Maybe (String), "InstanceProfileArn" :: Maybe (String), "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (String), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "S3DataSize" :: Maybe (Int), "S3DataUrl" :: Maybe (String), "S3LogUrl" :: Maybe (String), "SecurityGroupIds" :: Maybe (Strings), "ServerName" :: Maybe (ServerName), "ServiceRoleArn" :: Maybe (String), "Status" :: Maybe (BackupStatus), "StatusDescription" :: Maybe (String), "SubnetIds" :: Maybe (Strings), "ToolsVersion" :: Maybe (String), "UserArn" :: Maybe (String) }) -> Backup
 ```
 
 Constructs Backup's fields from required parameters
@@ -272,7 +272,7 @@ Encode Backups
 
 ``` purescript
 newtype CreateBackupRequest
-  = CreateBackupRequest { "ServerName" :: ServerName, "Description" :: NullOrUndefined (String) }
+  = CreateBackupRequest { "ServerName" :: ServerName, "Description" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -295,7 +295,7 @@ Constructs CreateBackupRequest from required parameters
 #### `newCreateBackupRequest'`
 
 ``` purescript
-newCreateBackupRequest' :: ServerName -> ({ "ServerName" :: ServerName, "Description" :: NullOrUndefined (String) } -> { "ServerName" :: ServerName, "Description" :: NullOrUndefined (String) }) -> CreateBackupRequest
+newCreateBackupRequest' :: ServerName -> ({ "ServerName" :: ServerName, "Description" :: Maybe (String) } -> { "ServerName" :: ServerName, "Description" :: Maybe (String) }) -> CreateBackupRequest
 ```
 
 Constructs CreateBackupRequest's fields from required parameters
@@ -304,7 +304,7 @@ Constructs CreateBackupRequest's fields from required parameters
 
 ``` purescript
 newtype CreateBackupResponse
-  = CreateBackupResponse { "Backup" :: NullOrUndefined (Backup) }
+  = CreateBackupResponse { "Backup" :: Maybe (Backup) }
 ```
 
 ##### Instances
@@ -327,7 +327,7 @@ Constructs CreateBackupResponse from required parameters
 #### `newCreateBackupResponse'`
 
 ``` purescript
-newCreateBackupResponse' :: ({ "Backup" :: NullOrUndefined (Backup) } -> { "Backup" :: NullOrUndefined (Backup) }) -> CreateBackupResponse
+newCreateBackupResponse' :: ({ "Backup" :: Maybe (Backup) } -> { "Backup" :: Maybe (Backup) }) -> CreateBackupResponse
 ```
 
 Constructs CreateBackupResponse's fields from required parameters
@@ -336,7 +336,7 @@ Constructs CreateBackupResponse's fields from required parameters
 
 ``` purescript
 newtype CreateServerRequest
-  = CreateServerRequest { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean), "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineVersion" :: NullOrUndefined (String), "EngineAttributes" :: NullOrUndefined (EngineAttributes), "BackupRetentionCount" :: NullOrUndefined (BackupRetentionCountDefinition), "ServerName" :: ServerName, "InstanceProfileArn" :: InstanceProfileArn, "InstanceType" :: String, "KeyPair" :: NullOrUndefined (KeyPair), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServiceRoleArn" :: ServiceRoleArn, "SubnetIds" :: NullOrUndefined (Strings), "BackupId" :: NullOrUndefined (BackupId) }
+  = CreateServerRequest { "AssociatePublicIpAddress" :: Maybe (Boolean), "DisableAutomatedBackup" :: Maybe (Boolean), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineVersion" :: Maybe (String), "EngineAttributes" :: Maybe (EngineAttributes), "BackupRetentionCount" :: Maybe (BackupRetentionCountDefinition), "ServerName" :: ServerName, "InstanceProfileArn" :: InstanceProfileArn, "InstanceType" :: String, "KeyPair" :: Maybe (KeyPair), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "SecurityGroupIds" :: Maybe (Strings), "ServiceRoleArn" :: ServiceRoleArn, "SubnetIds" :: Maybe (Strings), "BackupId" :: Maybe (BackupId) }
 ```
 
 ##### Instances
@@ -359,7 +359,7 @@ Constructs CreateServerRequest from required parameters
 #### `newCreateServerRequest'`
 
 ``` purescript
-newCreateServerRequest' :: InstanceProfileArn -> String -> ServerName -> ServiceRoleArn -> ({ "AssociatePublicIpAddress" :: NullOrUndefined (Boolean), "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineVersion" :: NullOrUndefined (String), "EngineAttributes" :: NullOrUndefined (EngineAttributes), "BackupRetentionCount" :: NullOrUndefined (BackupRetentionCountDefinition), "ServerName" :: ServerName, "InstanceProfileArn" :: InstanceProfileArn, "InstanceType" :: String, "KeyPair" :: NullOrUndefined (KeyPair), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServiceRoleArn" :: ServiceRoleArn, "SubnetIds" :: NullOrUndefined (Strings), "BackupId" :: NullOrUndefined (BackupId) } -> { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean), "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineVersion" :: NullOrUndefined (String), "EngineAttributes" :: NullOrUndefined (EngineAttributes), "BackupRetentionCount" :: NullOrUndefined (BackupRetentionCountDefinition), "ServerName" :: ServerName, "InstanceProfileArn" :: InstanceProfileArn, "InstanceType" :: String, "KeyPair" :: NullOrUndefined (KeyPair), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServiceRoleArn" :: ServiceRoleArn, "SubnetIds" :: NullOrUndefined (Strings), "BackupId" :: NullOrUndefined (BackupId) }) -> CreateServerRequest
+newCreateServerRequest' :: InstanceProfileArn -> String -> ServerName -> ServiceRoleArn -> ({ "AssociatePublicIpAddress" :: Maybe (Boolean), "DisableAutomatedBackup" :: Maybe (Boolean), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineVersion" :: Maybe (String), "EngineAttributes" :: Maybe (EngineAttributes), "BackupRetentionCount" :: Maybe (BackupRetentionCountDefinition), "ServerName" :: ServerName, "InstanceProfileArn" :: InstanceProfileArn, "InstanceType" :: String, "KeyPair" :: Maybe (KeyPair), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "SecurityGroupIds" :: Maybe (Strings), "ServiceRoleArn" :: ServiceRoleArn, "SubnetIds" :: Maybe (Strings), "BackupId" :: Maybe (BackupId) } -> { "AssociatePublicIpAddress" :: Maybe (Boolean), "DisableAutomatedBackup" :: Maybe (Boolean), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineVersion" :: Maybe (String), "EngineAttributes" :: Maybe (EngineAttributes), "BackupRetentionCount" :: Maybe (BackupRetentionCountDefinition), "ServerName" :: ServerName, "InstanceProfileArn" :: InstanceProfileArn, "InstanceType" :: String, "KeyPair" :: Maybe (KeyPair), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "SecurityGroupIds" :: Maybe (Strings), "ServiceRoleArn" :: ServiceRoleArn, "SubnetIds" :: Maybe (Strings), "BackupId" :: Maybe (BackupId) }) -> CreateServerRequest
 ```
 
 Constructs CreateServerRequest's fields from required parameters
@@ -368,7 +368,7 @@ Constructs CreateServerRequest's fields from required parameters
 
 ``` purescript
 newtype CreateServerResponse
-  = CreateServerResponse { "Server" :: NullOrUndefined (Server) }
+  = CreateServerResponse { "Server" :: Maybe (Server) }
 ```
 
 ##### Instances
@@ -391,7 +391,7 @@ Constructs CreateServerResponse from required parameters
 #### `newCreateServerResponse'`
 
 ``` purescript
-newCreateServerResponse' :: ({ "Server" :: NullOrUndefined (Server) } -> { "Server" :: NullOrUndefined (Server) }) -> CreateServerResponse
+newCreateServerResponse' :: ({ "Server" :: Maybe (Server) } -> { "Server" :: Maybe (Server) }) -> CreateServerResponse
 ```
 
 Constructs CreateServerResponse's fields from required parameters
@@ -512,7 +512,7 @@ Encode DescribeAccountAttributesRequest
 
 ``` purescript
 newtype DescribeAccountAttributesResponse
-  = DescribeAccountAttributesResponse { "Attributes" :: NullOrUndefined (AccountAttributes) }
+  = DescribeAccountAttributesResponse { "Attributes" :: Maybe (AccountAttributes) }
 ```
 
 ##### Instances
@@ -535,7 +535,7 @@ Constructs DescribeAccountAttributesResponse from required parameters
 #### `newDescribeAccountAttributesResponse'`
 
 ``` purescript
-newDescribeAccountAttributesResponse' :: ({ "Attributes" :: NullOrUndefined (AccountAttributes) } -> { "Attributes" :: NullOrUndefined (AccountAttributes) }) -> DescribeAccountAttributesResponse
+newDescribeAccountAttributesResponse' :: ({ "Attributes" :: Maybe (AccountAttributes) } -> { "Attributes" :: Maybe (AccountAttributes) }) -> DescribeAccountAttributesResponse
 ```
 
 Constructs DescribeAccountAttributesResponse's fields from required parameters
@@ -544,7 +544,7 @@ Constructs DescribeAccountAttributesResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeBackupsRequest
-  = DescribeBackupsRequest { "BackupId" :: NullOrUndefined (BackupId), "ServerName" :: NullOrUndefined (ServerName), "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) }
+  = DescribeBackupsRequest { "BackupId" :: Maybe (BackupId), "ServerName" :: Maybe (ServerName), "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -567,7 +567,7 @@ Constructs DescribeBackupsRequest from required parameters
 #### `newDescribeBackupsRequest'`
 
 ``` purescript
-newDescribeBackupsRequest' :: ({ "BackupId" :: NullOrUndefined (BackupId), "ServerName" :: NullOrUndefined (ServerName), "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) } -> { "BackupId" :: NullOrUndefined (BackupId), "ServerName" :: NullOrUndefined (ServerName), "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) }) -> DescribeBackupsRequest
+newDescribeBackupsRequest' :: ({ "BackupId" :: Maybe (BackupId), "ServerName" :: Maybe (ServerName), "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) } -> { "BackupId" :: Maybe (BackupId), "ServerName" :: Maybe (ServerName), "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) }) -> DescribeBackupsRequest
 ```
 
 Constructs DescribeBackupsRequest's fields from required parameters
@@ -576,7 +576,7 @@ Constructs DescribeBackupsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeBackupsResponse
-  = DescribeBackupsResponse { "Backups" :: NullOrUndefined (Backups), "NextToken" :: NullOrUndefined (String) }
+  = DescribeBackupsResponse { "Backups" :: Maybe (Backups), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -599,7 +599,7 @@ Constructs DescribeBackupsResponse from required parameters
 #### `newDescribeBackupsResponse'`
 
 ``` purescript
-newDescribeBackupsResponse' :: ({ "Backups" :: NullOrUndefined (Backups), "NextToken" :: NullOrUndefined (String) } -> { "Backups" :: NullOrUndefined (Backups), "NextToken" :: NullOrUndefined (String) }) -> DescribeBackupsResponse
+newDescribeBackupsResponse' :: ({ "Backups" :: Maybe (Backups), "NextToken" :: Maybe (String) } -> { "Backups" :: Maybe (Backups), "NextToken" :: Maybe (String) }) -> DescribeBackupsResponse
 ```
 
 Constructs DescribeBackupsResponse's fields from required parameters
@@ -608,7 +608,7 @@ Constructs DescribeBackupsResponse's fields from required parameters
 
 ``` purescript
 newtype DescribeEventsRequest
-  = DescribeEventsRequest { "ServerName" :: ServerName, "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) }
+  = DescribeEventsRequest { "ServerName" :: ServerName, "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -631,7 +631,7 @@ Constructs DescribeEventsRequest from required parameters
 #### `newDescribeEventsRequest'`
 
 ``` purescript
-newDescribeEventsRequest' :: ServerName -> ({ "ServerName" :: ServerName, "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) } -> { "ServerName" :: ServerName, "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) }) -> DescribeEventsRequest
+newDescribeEventsRequest' :: ServerName -> ({ "ServerName" :: ServerName, "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) } -> { "ServerName" :: ServerName, "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) }) -> DescribeEventsRequest
 ```
 
 Constructs DescribeEventsRequest's fields from required parameters
@@ -640,7 +640,7 @@ Constructs DescribeEventsRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeEventsResponse
-  = DescribeEventsResponse { "ServerEvents" :: NullOrUndefined (ServerEvents), "NextToken" :: NullOrUndefined (String) }
+  = DescribeEventsResponse { "ServerEvents" :: Maybe (ServerEvents), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -663,7 +663,7 @@ Constructs DescribeEventsResponse from required parameters
 #### `newDescribeEventsResponse'`
 
 ``` purescript
-newDescribeEventsResponse' :: ({ "ServerEvents" :: NullOrUndefined (ServerEvents), "NextToken" :: NullOrUndefined (String) } -> { "ServerEvents" :: NullOrUndefined (ServerEvents), "NextToken" :: NullOrUndefined (String) }) -> DescribeEventsResponse
+newDescribeEventsResponse' :: ({ "ServerEvents" :: Maybe (ServerEvents), "NextToken" :: Maybe (String) } -> { "ServerEvents" :: Maybe (ServerEvents), "NextToken" :: Maybe (String) }) -> DescribeEventsResponse
 ```
 
 Constructs DescribeEventsResponse's fields from required parameters
@@ -704,7 +704,7 @@ Constructs DescribeNodeAssociationStatusRequest's fields from required parameter
 
 ``` purescript
 newtype DescribeNodeAssociationStatusResponse
-  = DescribeNodeAssociationStatusResponse { "NodeAssociationStatus" :: NullOrUndefined (NodeAssociationStatus), "EngineAttributes" :: NullOrUndefined (EngineAttributes) }
+  = DescribeNodeAssociationStatusResponse { "NodeAssociationStatus" :: Maybe (NodeAssociationStatus), "EngineAttributes" :: Maybe (EngineAttributes) }
 ```
 
 ##### Instances
@@ -727,7 +727,7 @@ Constructs DescribeNodeAssociationStatusResponse from required parameters
 #### `newDescribeNodeAssociationStatusResponse'`
 
 ``` purescript
-newDescribeNodeAssociationStatusResponse' :: ({ "NodeAssociationStatus" :: NullOrUndefined (NodeAssociationStatus), "EngineAttributes" :: NullOrUndefined (EngineAttributes) } -> { "NodeAssociationStatus" :: NullOrUndefined (NodeAssociationStatus), "EngineAttributes" :: NullOrUndefined (EngineAttributes) }) -> DescribeNodeAssociationStatusResponse
+newDescribeNodeAssociationStatusResponse' :: ({ "NodeAssociationStatus" :: Maybe (NodeAssociationStatus), "EngineAttributes" :: Maybe (EngineAttributes) } -> { "NodeAssociationStatus" :: Maybe (NodeAssociationStatus), "EngineAttributes" :: Maybe (EngineAttributes) }) -> DescribeNodeAssociationStatusResponse
 ```
 
 Constructs DescribeNodeAssociationStatusResponse's fields from required parameters
@@ -736,7 +736,7 @@ Constructs DescribeNodeAssociationStatusResponse's fields from required paramete
 
 ``` purescript
 newtype DescribeServersRequest
-  = DescribeServersRequest { "ServerName" :: NullOrUndefined (ServerName), "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) }
+  = DescribeServersRequest { "ServerName" :: Maybe (ServerName), "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) }
 ```
 
 ##### Instances
@@ -759,7 +759,7 @@ Constructs DescribeServersRequest from required parameters
 #### `newDescribeServersRequest'`
 
 ``` purescript
-newDescribeServersRequest' :: ({ "ServerName" :: NullOrUndefined (ServerName), "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) } -> { "ServerName" :: NullOrUndefined (ServerName), "NextToken" :: NullOrUndefined (NextToken), "MaxResults" :: NullOrUndefined (MaxResults) }) -> DescribeServersRequest
+newDescribeServersRequest' :: ({ "ServerName" :: Maybe (ServerName), "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) } -> { "ServerName" :: Maybe (ServerName), "NextToken" :: Maybe (NextToken), "MaxResults" :: Maybe (MaxResults) }) -> DescribeServersRequest
 ```
 
 Constructs DescribeServersRequest's fields from required parameters
@@ -768,7 +768,7 @@ Constructs DescribeServersRequest's fields from required parameters
 
 ``` purescript
 newtype DescribeServersResponse
-  = DescribeServersResponse { "Servers" :: NullOrUndefined (Servers), "NextToken" :: NullOrUndefined (String) }
+  = DescribeServersResponse { "Servers" :: Maybe (Servers), "NextToken" :: Maybe (String) }
 ```
 
 ##### Instances
@@ -791,7 +791,7 @@ Constructs DescribeServersResponse from required parameters
 #### `newDescribeServersResponse'`
 
 ``` purescript
-newDescribeServersResponse' :: ({ "Servers" :: NullOrUndefined (Servers), "NextToken" :: NullOrUndefined (String) } -> { "Servers" :: NullOrUndefined (Servers), "NextToken" :: NullOrUndefined (String) }) -> DescribeServersResponse
+newDescribeServersResponse' :: ({ "Servers" :: Maybe (Servers), "NextToken" :: Maybe (String) } -> { "Servers" :: Maybe (Servers), "NextToken" :: Maybe (String) }) -> DescribeServersResponse
 ```
 
 Constructs DescribeServersResponse's fields from required parameters
@@ -800,7 +800,7 @@ Constructs DescribeServersResponse's fields from required parameters
 
 ``` purescript
 newtype DisassociateNodeRequest
-  = DisassociateNodeRequest { "ServerName" :: ServerName, "NodeName" :: NodeName, "EngineAttributes" :: NullOrUndefined (EngineAttributes) }
+  = DisassociateNodeRequest { "ServerName" :: ServerName, "NodeName" :: NodeName, "EngineAttributes" :: Maybe (EngineAttributes) }
 ```
 
 ##### Instances
@@ -823,7 +823,7 @@ Constructs DisassociateNodeRequest from required parameters
 #### `newDisassociateNodeRequest'`
 
 ``` purescript
-newDisassociateNodeRequest' :: NodeName -> ServerName -> ({ "ServerName" :: ServerName, "NodeName" :: NodeName, "EngineAttributes" :: NullOrUndefined (EngineAttributes) } -> { "ServerName" :: ServerName, "NodeName" :: NodeName, "EngineAttributes" :: NullOrUndefined (EngineAttributes) }) -> DisassociateNodeRequest
+newDisassociateNodeRequest' :: NodeName -> ServerName -> ({ "ServerName" :: ServerName, "NodeName" :: NodeName, "EngineAttributes" :: Maybe (EngineAttributes) } -> { "ServerName" :: ServerName, "NodeName" :: NodeName, "EngineAttributes" :: Maybe (EngineAttributes) }) -> DisassociateNodeRequest
 ```
 
 Constructs DisassociateNodeRequest's fields from required parameters
@@ -832,7 +832,7 @@ Constructs DisassociateNodeRequest's fields from required parameters
 
 ``` purescript
 newtype DisassociateNodeResponse
-  = DisassociateNodeResponse { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) }
+  = DisassociateNodeResponse { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) }
 ```
 
 ##### Instances
@@ -855,7 +855,7 @@ Constructs DisassociateNodeResponse from required parameters
 #### `newDisassociateNodeResponse'`
 
 ``` purescript
-newDisassociateNodeResponse' :: ({ "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) } -> { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) }) -> DisassociateNodeResponse
+newDisassociateNodeResponse' :: ({ "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) } -> { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) }) -> DisassociateNodeResponse
 ```
 
 Constructs DisassociateNodeResponse's fields from required parameters
@@ -864,7 +864,7 @@ Constructs DisassociateNodeResponse's fields from required parameters
 
 ``` purescript
 newtype EngineAttribute
-  = EngineAttribute { "Name" :: NullOrUndefined (EngineAttributeName), "Value" :: NullOrUndefined (EngineAttributeValue) }
+  = EngineAttribute { "Name" :: Maybe (EngineAttributeName), "Value" :: Maybe (EngineAttributeValue) }
 ```
 
 <p>A name and value pair that is specific to the engine of the server. </p>
@@ -889,7 +889,7 @@ Constructs EngineAttribute from required parameters
 #### `newEngineAttribute'`
 
 ``` purescript
-newEngineAttribute' :: ({ "Name" :: NullOrUndefined (EngineAttributeName), "Value" :: NullOrUndefined (EngineAttributeValue) } -> { "Name" :: NullOrUndefined (EngineAttributeName), "Value" :: NullOrUndefined (EngineAttributeValue) }) -> EngineAttribute
+newEngineAttribute' :: ({ "Name" :: Maybe (EngineAttributeName), "Value" :: Maybe (EngineAttributeValue) } -> { "Name" :: Maybe (EngineAttributeName), "Value" :: Maybe (EngineAttributeValue) }) -> EngineAttribute
 ```
 
 Constructs EngineAttribute's fields from required parameters
@@ -962,7 +962,7 @@ Encode InstanceProfileArn
 
 ``` purescript
 newtype InvalidNextTokenException
-  = InvalidNextTokenException { "Message" :: NullOrUndefined (String) }
+  = InvalidNextTokenException { "Message" :: Maybe (String) }
 ```
 
 <p>This occurs when the provided nextToken is not valid. </p>
@@ -987,7 +987,7 @@ Constructs InvalidNextTokenException from required parameters
 #### `newInvalidNextTokenException'`
 
 ``` purescript
-newInvalidNextTokenException' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidNextTokenException
+newInvalidNextTokenException' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidNextTokenException
 ```
 
 Constructs InvalidNextTokenException's fields from required parameters
@@ -996,7 +996,7 @@ Constructs InvalidNextTokenException's fields from required parameters
 
 ``` purescript
 newtype InvalidStateException
-  = InvalidStateException { "Message" :: NullOrUndefined (String) }
+  = InvalidStateException { "Message" :: Maybe (String) }
 ```
 
 <p>The resource is in a state that does not allow you to perform a specified action. </p>
@@ -1021,7 +1021,7 @@ Constructs InvalidStateException from required parameters
 #### `newInvalidStateException'`
 
 ``` purescript
-newInvalidStateException' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> InvalidStateException
+newInvalidStateException' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> InvalidStateException
 ```
 
 Constructs InvalidStateException's fields from required parameters
@@ -1046,7 +1046,7 @@ Encode KeyPair
 
 ``` purescript
 newtype LimitExceededException
-  = LimitExceededException { "Message" :: NullOrUndefined (String) }
+  = LimitExceededException { "Message" :: Maybe (String) }
 ```
 
 <p>The limit of servers or backups has been reached. </p>
@@ -1071,7 +1071,7 @@ Constructs LimitExceededException from required parameters
 #### `newLimitExceededException'`
 
 ``` purescript
-newLimitExceededException' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> LimitExceededException
+newLimitExceededException' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> LimitExceededException
 ```
 
 Constructs LimitExceededException's fields from required parameters
@@ -1180,7 +1180,7 @@ Encode NodeName
 
 ``` purescript
 newtype ResourceAlreadyExistsException
-  = ResourceAlreadyExistsException { "Message" :: NullOrUndefined (String) }
+  = ResourceAlreadyExistsException { "Message" :: Maybe (String) }
 ```
 
 <p>The requested resource cannot be created because it already exists. </p>
@@ -1205,7 +1205,7 @@ Constructs ResourceAlreadyExistsException from required parameters
 #### `newResourceAlreadyExistsException'`
 
 ``` purescript
-newResourceAlreadyExistsException' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> ResourceAlreadyExistsException
+newResourceAlreadyExistsException' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> ResourceAlreadyExistsException
 ```
 
 Constructs ResourceAlreadyExistsException's fields from required parameters
@@ -1214,7 +1214,7 @@ Constructs ResourceAlreadyExistsException's fields from required parameters
 
 ``` purescript
 newtype ResourceNotFoundException
-  = ResourceNotFoundException { "Message" :: NullOrUndefined (String) }
+  = ResourceNotFoundException { "Message" :: Maybe (String) }
 ```
 
 <p>The requested resource does not exist, or access was denied. </p>
@@ -1239,7 +1239,7 @@ Constructs ResourceNotFoundException from required parameters
 #### `newResourceNotFoundException'`
 
 ``` purescript
-newResourceNotFoundException' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> ResourceNotFoundException
+newResourceNotFoundException' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> ResourceNotFoundException
 ```
 
 Constructs ResourceNotFoundException's fields from required parameters
@@ -1248,7 +1248,7 @@ Constructs ResourceNotFoundException's fields from required parameters
 
 ``` purescript
 newtype RestoreServerRequest
-  = RestoreServerRequest { "BackupId" :: BackupId, "ServerName" :: ServerName, "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (KeyPair) }
+  = RestoreServerRequest { "BackupId" :: BackupId, "ServerName" :: ServerName, "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (KeyPair) }
 ```
 
 ##### Instances
@@ -1271,7 +1271,7 @@ Constructs RestoreServerRequest from required parameters
 #### `newRestoreServerRequest'`
 
 ``` purescript
-newRestoreServerRequest' :: BackupId -> ServerName -> ({ "BackupId" :: BackupId, "ServerName" :: ServerName, "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (KeyPair) } -> { "BackupId" :: BackupId, "ServerName" :: ServerName, "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (KeyPair) }) -> RestoreServerRequest
+newRestoreServerRequest' :: BackupId -> ServerName -> ({ "BackupId" :: BackupId, "ServerName" :: ServerName, "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (KeyPair) } -> { "BackupId" :: BackupId, "ServerName" :: ServerName, "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (KeyPair) }) -> RestoreServerRequest
 ```
 
 Constructs RestoreServerRequest's fields from required parameters
@@ -1296,7 +1296,7 @@ Encode RestoreServerResponse
 
 ``` purescript
 newtype Server
-  = Server { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean), "BackupRetentionCount" :: NullOrUndefined (Int), "ServerName" :: NullOrUndefined (String), "CreatedAt" :: NullOrUndefined (Timestamp), "CloudFormationStackArn" :: NullOrUndefined (String), "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "Endpoint" :: NullOrUndefined (String), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineAttributes" :: NullOrUndefined (EngineAttributes), "EngineVersion" :: NullOrUndefined (String), "InstanceProfileArn" :: NullOrUndefined (String), "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (String), "MaintenanceStatus" :: NullOrUndefined (MaintenanceStatus), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServiceRoleArn" :: NullOrUndefined (String), "Status" :: NullOrUndefined (ServerStatus), "StatusReason" :: NullOrUndefined (String), "SubnetIds" :: NullOrUndefined (Strings), "ServerArn" :: NullOrUndefined (String) }
+  = Server { "AssociatePublicIpAddress" :: Maybe (Boolean), "BackupRetentionCount" :: Maybe (Int), "ServerName" :: Maybe (String), "CreatedAt" :: Maybe (Timestamp), "CloudFormationStackArn" :: Maybe (String), "DisableAutomatedBackup" :: Maybe (Boolean), "Endpoint" :: Maybe (String), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineAttributes" :: Maybe (EngineAttributes), "EngineVersion" :: Maybe (String), "InstanceProfileArn" :: Maybe (String), "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (String), "MaintenanceStatus" :: Maybe (MaintenanceStatus), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "SecurityGroupIds" :: Maybe (Strings), "ServiceRoleArn" :: Maybe (String), "Status" :: Maybe (ServerStatus), "StatusReason" :: Maybe (String), "SubnetIds" :: Maybe (Strings), "ServerArn" :: Maybe (String) }
 ```
 
 <p>Describes a configuration management server. </p>
@@ -1321,7 +1321,7 @@ Constructs Server from required parameters
 #### `newServer'`
 
 ``` purescript
-newServer' :: ({ "AssociatePublicIpAddress" :: NullOrUndefined (Boolean), "BackupRetentionCount" :: NullOrUndefined (Int), "ServerName" :: NullOrUndefined (String), "CreatedAt" :: NullOrUndefined (Timestamp), "CloudFormationStackArn" :: NullOrUndefined (String), "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "Endpoint" :: NullOrUndefined (String), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineAttributes" :: NullOrUndefined (EngineAttributes), "EngineVersion" :: NullOrUndefined (String), "InstanceProfileArn" :: NullOrUndefined (String), "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (String), "MaintenanceStatus" :: NullOrUndefined (MaintenanceStatus), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServiceRoleArn" :: NullOrUndefined (String), "Status" :: NullOrUndefined (ServerStatus), "StatusReason" :: NullOrUndefined (String), "SubnetIds" :: NullOrUndefined (Strings), "ServerArn" :: NullOrUndefined (String) } -> { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean), "BackupRetentionCount" :: NullOrUndefined (Int), "ServerName" :: NullOrUndefined (String), "CreatedAt" :: NullOrUndefined (Timestamp), "CloudFormationStackArn" :: NullOrUndefined (String), "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "Endpoint" :: NullOrUndefined (String), "Engine" :: NullOrUndefined (String), "EngineModel" :: NullOrUndefined (String), "EngineAttributes" :: NullOrUndefined (EngineAttributes), "EngineVersion" :: NullOrUndefined (String), "InstanceProfileArn" :: NullOrUndefined (String), "InstanceType" :: NullOrUndefined (String), "KeyPair" :: NullOrUndefined (String), "MaintenanceStatus" :: NullOrUndefined (MaintenanceStatus), "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition), "SecurityGroupIds" :: NullOrUndefined (Strings), "ServiceRoleArn" :: NullOrUndefined (String), "Status" :: NullOrUndefined (ServerStatus), "StatusReason" :: NullOrUndefined (String), "SubnetIds" :: NullOrUndefined (Strings), "ServerArn" :: NullOrUndefined (String) }) -> Server
+newServer' :: ({ "AssociatePublicIpAddress" :: Maybe (Boolean), "BackupRetentionCount" :: Maybe (Int), "ServerName" :: Maybe (String), "CreatedAt" :: Maybe (Timestamp), "CloudFormationStackArn" :: Maybe (String), "DisableAutomatedBackup" :: Maybe (Boolean), "Endpoint" :: Maybe (String), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineAttributes" :: Maybe (EngineAttributes), "EngineVersion" :: Maybe (String), "InstanceProfileArn" :: Maybe (String), "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (String), "MaintenanceStatus" :: Maybe (MaintenanceStatus), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "SecurityGroupIds" :: Maybe (Strings), "ServiceRoleArn" :: Maybe (String), "Status" :: Maybe (ServerStatus), "StatusReason" :: Maybe (String), "SubnetIds" :: Maybe (Strings), "ServerArn" :: Maybe (String) } -> { "AssociatePublicIpAddress" :: Maybe (Boolean), "BackupRetentionCount" :: Maybe (Int), "ServerName" :: Maybe (String), "CreatedAt" :: Maybe (Timestamp), "CloudFormationStackArn" :: Maybe (String), "DisableAutomatedBackup" :: Maybe (Boolean), "Endpoint" :: Maybe (String), "Engine" :: Maybe (String), "EngineModel" :: Maybe (String), "EngineAttributes" :: Maybe (EngineAttributes), "EngineVersion" :: Maybe (String), "InstanceProfileArn" :: Maybe (String), "InstanceType" :: Maybe (String), "KeyPair" :: Maybe (String), "MaintenanceStatus" :: Maybe (MaintenanceStatus), "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition), "SecurityGroupIds" :: Maybe (Strings), "ServiceRoleArn" :: Maybe (String), "Status" :: Maybe (ServerStatus), "StatusReason" :: Maybe (String), "SubnetIds" :: Maybe (Strings), "ServerArn" :: Maybe (String) }) -> Server
 ```
 
 Constructs Server's fields from required parameters
@@ -1330,7 +1330,7 @@ Constructs Server's fields from required parameters
 
 ``` purescript
 newtype ServerEvent
-  = ServerEvent { "CreatedAt" :: NullOrUndefined (Timestamp), "ServerName" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String), "LogUrl" :: NullOrUndefined (String) }
+  = ServerEvent { "CreatedAt" :: Maybe (Timestamp), "ServerName" :: Maybe (String), "Message" :: Maybe (String), "LogUrl" :: Maybe (String) }
 ```
 
 <p>An event that is related to the server, such as the start of maintenance or backup. </p>
@@ -1355,7 +1355,7 @@ Constructs ServerEvent from required parameters
 #### `newServerEvent'`
 
 ``` purescript
-newServerEvent' :: ({ "CreatedAt" :: NullOrUndefined (Timestamp), "ServerName" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String), "LogUrl" :: NullOrUndefined (String) } -> { "CreatedAt" :: NullOrUndefined (Timestamp), "ServerName" :: NullOrUndefined (String), "Message" :: NullOrUndefined (String), "LogUrl" :: NullOrUndefined (String) }) -> ServerEvent
+newServerEvent' :: ({ "CreatedAt" :: Maybe (Timestamp), "ServerName" :: Maybe (String), "Message" :: Maybe (String), "LogUrl" :: Maybe (String) } -> { "CreatedAt" :: Maybe (Timestamp), "ServerName" :: Maybe (String), "Message" :: Maybe (String), "LogUrl" :: Maybe (String) }) -> ServerEvent
 ```
 
 Constructs ServerEvent's fields from required parameters
@@ -1444,7 +1444,7 @@ Encode ServiceRoleArn
 
 ``` purescript
 newtype StartMaintenanceRequest
-  = StartMaintenanceRequest { "ServerName" :: ServerName, "EngineAttributes" :: NullOrUndefined (EngineAttributes) }
+  = StartMaintenanceRequest { "ServerName" :: ServerName, "EngineAttributes" :: Maybe (EngineAttributes) }
 ```
 
 ##### Instances
@@ -1467,7 +1467,7 @@ Constructs StartMaintenanceRequest from required parameters
 #### `newStartMaintenanceRequest'`
 
 ``` purescript
-newStartMaintenanceRequest' :: ServerName -> ({ "ServerName" :: ServerName, "EngineAttributes" :: NullOrUndefined (EngineAttributes) } -> { "ServerName" :: ServerName, "EngineAttributes" :: NullOrUndefined (EngineAttributes) }) -> StartMaintenanceRequest
+newStartMaintenanceRequest' :: ServerName -> ({ "ServerName" :: ServerName, "EngineAttributes" :: Maybe (EngineAttributes) } -> { "ServerName" :: ServerName, "EngineAttributes" :: Maybe (EngineAttributes) }) -> StartMaintenanceRequest
 ```
 
 Constructs StartMaintenanceRequest's fields from required parameters
@@ -1476,7 +1476,7 @@ Constructs StartMaintenanceRequest's fields from required parameters
 
 ``` purescript
 newtype StartMaintenanceResponse
-  = StartMaintenanceResponse { "Server" :: NullOrUndefined (Server) }
+  = StartMaintenanceResponse { "Server" :: Maybe (Server) }
 ```
 
 ##### Instances
@@ -1499,7 +1499,7 @@ Constructs StartMaintenanceResponse from required parameters
 #### `newStartMaintenanceResponse'`
 
 ``` purescript
-newStartMaintenanceResponse' :: ({ "Server" :: NullOrUndefined (Server) } -> { "Server" :: NullOrUndefined (Server) }) -> StartMaintenanceResponse
+newStartMaintenanceResponse' :: ({ "Server" :: Maybe (Server) } -> { "Server" :: Maybe (Server) }) -> StartMaintenanceResponse
 ```
 
 Constructs StartMaintenanceResponse's fields from required parameters
@@ -1542,7 +1542,7 @@ Encode TimeWindowDefinition
 
 ``` purescript
 newtype UpdateServerEngineAttributesRequest
-  = UpdateServerEngineAttributesRequest { "ServerName" :: ServerName, "AttributeName" :: AttributeName, "AttributeValue" :: NullOrUndefined (AttributeValue) }
+  = UpdateServerEngineAttributesRequest { "ServerName" :: ServerName, "AttributeName" :: AttributeName, "AttributeValue" :: Maybe (AttributeValue) }
 ```
 
 ##### Instances
@@ -1565,7 +1565,7 @@ Constructs UpdateServerEngineAttributesRequest from required parameters
 #### `newUpdateServerEngineAttributesRequest'`
 
 ``` purescript
-newUpdateServerEngineAttributesRequest' :: AttributeName -> ServerName -> ({ "ServerName" :: ServerName, "AttributeName" :: AttributeName, "AttributeValue" :: NullOrUndefined (AttributeValue) } -> { "ServerName" :: ServerName, "AttributeName" :: AttributeName, "AttributeValue" :: NullOrUndefined (AttributeValue) }) -> UpdateServerEngineAttributesRequest
+newUpdateServerEngineAttributesRequest' :: AttributeName -> ServerName -> ({ "ServerName" :: ServerName, "AttributeName" :: AttributeName, "AttributeValue" :: Maybe (AttributeValue) } -> { "ServerName" :: ServerName, "AttributeName" :: AttributeName, "AttributeValue" :: Maybe (AttributeValue) }) -> UpdateServerEngineAttributesRequest
 ```
 
 Constructs UpdateServerEngineAttributesRequest's fields from required parameters
@@ -1574,7 +1574,7 @@ Constructs UpdateServerEngineAttributesRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateServerEngineAttributesResponse
-  = UpdateServerEngineAttributesResponse { "Server" :: NullOrUndefined (Server) }
+  = UpdateServerEngineAttributesResponse { "Server" :: Maybe (Server) }
 ```
 
 ##### Instances
@@ -1597,7 +1597,7 @@ Constructs UpdateServerEngineAttributesResponse from required parameters
 #### `newUpdateServerEngineAttributesResponse'`
 
 ``` purescript
-newUpdateServerEngineAttributesResponse' :: ({ "Server" :: NullOrUndefined (Server) } -> { "Server" :: NullOrUndefined (Server) }) -> UpdateServerEngineAttributesResponse
+newUpdateServerEngineAttributesResponse' :: ({ "Server" :: Maybe (Server) } -> { "Server" :: Maybe (Server) }) -> UpdateServerEngineAttributesResponse
 ```
 
 Constructs UpdateServerEngineAttributesResponse's fields from required parameters
@@ -1606,7 +1606,7 @@ Constructs UpdateServerEngineAttributesResponse's fields from required parameter
 
 ``` purescript
 newtype UpdateServerRequest
-  = UpdateServerRequest { "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "BackupRetentionCount" :: NullOrUndefined (Int), "ServerName" :: ServerName, "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) }
+  = UpdateServerRequest { "DisableAutomatedBackup" :: Maybe (Boolean), "BackupRetentionCount" :: Maybe (Int), "ServerName" :: ServerName, "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) }
 ```
 
 ##### Instances
@@ -1629,7 +1629,7 @@ Constructs UpdateServerRequest from required parameters
 #### `newUpdateServerRequest'`
 
 ``` purescript
-newUpdateServerRequest' :: ServerName -> ({ "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "BackupRetentionCount" :: NullOrUndefined (Int), "ServerName" :: ServerName, "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) } -> { "DisableAutomatedBackup" :: NullOrUndefined (Boolean), "BackupRetentionCount" :: NullOrUndefined (Int), "ServerName" :: ServerName, "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition), "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) }) -> UpdateServerRequest
+newUpdateServerRequest' :: ServerName -> ({ "DisableAutomatedBackup" :: Maybe (Boolean), "BackupRetentionCount" :: Maybe (Int), "ServerName" :: ServerName, "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) } -> { "DisableAutomatedBackup" :: Maybe (Boolean), "BackupRetentionCount" :: Maybe (Int), "ServerName" :: ServerName, "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition), "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) }) -> UpdateServerRequest
 ```
 
 Constructs UpdateServerRequest's fields from required parameters
@@ -1638,7 +1638,7 @@ Constructs UpdateServerRequest's fields from required parameters
 
 ``` purescript
 newtype UpdateServerResponse
-  = UpdateServerResponse { "Server" :: NullOrUndefined (Server) }
+  = UpdateServerResponse { "Server" :: Maybe (Server) }
 ```
 
 ##### Instances
@@ -1661,7 +1661,7 @@ Constructs UpdateServerResponse from required parameters
 #### `newUpdateServerResponse'`
 
 ``` purescript
-newUpdateServerResponse' :: ({ "Server" :: NullOrUndefined (Server) } -> { "Server" :: NullOrUndefined (Server) }) -> UpdateServerResponse
+newUpdateServerResponse' :: ({ "Server" :: Maybe (Server) } -> { "Server" :: Maybe (Server) }) -> UpdateServerResponse
 ```
 
 Constructs UpdateServerResponse's fields from required parameters
@@ -1670,7 +1670,7 @@ Constructs UpdateServerResponse's fields from required parameters
 
 ``` purescript
 newtype ValidationException
-  = ValidationException { "Message" :: NullOrUndefined (String) }
+  = ValidationException { "Message" :: Maybe (String) }
 ```
 
 <p>One or more of the provided request parameters are not valid. </p>
@@ -1695,7 +1695,7 @@ Constructs ValidationException from required parameters
 #### `newValidationException'`
 
 ``` purescript
-newValidationException' :: ({ "Message" :: NullOrUndefined (String) } -> { "Message" :: NullOrUndefined (String) }) -> ValidationException
+newValidationException' :: ({ "Message" :: Maybe (String) } -> { "Message" :: Maybe (String) }) -> ValidationException
 ```
 
 Constructs ValidationException's fields from required parameters

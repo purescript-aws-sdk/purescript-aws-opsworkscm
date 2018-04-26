@@ -5,7 +5,6 @@ import Prelude
 import Data.Foreign.Class (class Decode, class Encode)
 import Data.Foreign.Generic (defaultOptions, genericDecode, genericEncode)
 import Data.Foreign.Generic.Types (Options)
-import Data.Foreign.NullOrUndefined (NullOrUndefined(..))
 import Data.Generic.Rep (class Generic)
 import Data.Generic.Rep.Show (genericShow)
 import Data.Maybe (Maybe(..))
@@ -20,9 +19,9 @@ options = defaultOptions { unwrapSingleConstructors = true }
 
 -- | <p>Stores account attributes. </p>
 newtype AccountAttribute = AccountAttribute 
-  { "Name" :: NullOrUndefined (String)
-  , "Maximum" :: NullOrUndefined (Int)
-  , "Used" :: NullOrUndefined (Int)
+  { "Name" :: Maybe (String)
+  , "Maximum" :: Maybe (Int)
+  , "Used" :: Maybe (Int)
   }
 derive instance newtypeAccountAttribute :: Newtype AccountAttribute _
 derive instance repGenericAccountAttribute :: Generic AccountAttribute _
@@ -32,12 +31,12 @@ instance encodeAccountAttribute :: Encode AccountAttribute where encode = generi
 
 -- | Constructs AccountAttribute from required parameters
 newAccountAttribute :: AccountAttribute
-newAccountAttribute  = AccountAttribute { "Maximum": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Used": (NullOrUndefined Nothing) }
+newAccountAttribute  = AccountAttribute { "Maximum": Nothing, "Name": Nothing, "Used": Nothing }
 
 -- | Constructs AccountAttribute's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAccountAttribute' :: ( { "Name" :: NullOrUndefined (String) , "Maximum" :: NullOrUndefined (Int) , "Used" :: NullOrUndefined (Int) } -> {"Name" :: NullOrUndefined (String) , "Maximum" :: NullOrUndefined (Int) , "Used" :: NullOrUndefined (Int) } ) -> AccountAttribute
-newAccountAttribute'  customize = (AccountAttribute <<< customize) { "Maximum": (NullOrUndefined Nothing), "Name": (NullOrUndefined Nothing), "Used": (NullOrUndefined Nothing) }
+newAccountAttribute' :: ( { "Name" :: Maybe (String) , "Maximum" :: Maybe (Int) , "Used" :: Maybe (Int) } -> {"Name" :: Maybe (String) , "Maximum" :: Maybe (Int) , "Used" :: Maybe (Int) } ) -> AccountAttribute
+newAccountAttribute'  customize = (AccountAttribute <<< customize) { "Maximum": Nothing, "Name": Nothing, "Used": Nothing }
 
 
 
@@ -74,7 +73,7 @@ newAssociateNodeRequest' _EngineAttributes _NodeName _ServerName customize = (As
 
 
 newtype AssociateNodeResponse = AssociateNodeResponse 
-  { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken)
+  { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken)
   }
 derive instance newtypeAssociateNodeResponse :: Newtype AssociateNodeResponse _
 derive instance repGenericAssociateNodeResponse :: Generic AssociateNodeResponse _
@@ -84,12 +83,12 @@ instance encodeAssociateNodeResponse :: Encode AssociateNodeResponse where encod
 
 -- | Constructs AssociateNodeResponse from required parameters
 newAssociateNodeResponse :: AssociateNodeResponse
-newAssociateNodeResponse  = AssociateNodeResponse { "NodeAssociationStatusToken": (NullOrUndefined Nothing) }
+newAssociateNodeResponse  = AssociateNodeResponse { "NodeAssociationStatusToken": Nothing }
 
 -- | Constructs AssociateNodeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newAssociateNodeResponse' :: ( { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) } -> {"NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) } ) -> AssociateNodeResponse
-newAssociateNodeResponse'  customize = (AssociateNodeResponse <<< customize) { "NodeAssociationStatusToken": (NullOrUndefined Nothing) }
+newAssociateNodeResponse' :: ( { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) } -> {"NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) } ) -> AssociateNodeResponse
+newAssociateNodeResponse'  customize = (AssociateNodeResponse <<< customize) { "NodeAssociationStatusToken": Nothing }
 
 
 
@@ -113,30 +112,30 @@ instance encodeAttributeValue :: Encode AttributeValue where encode = genericEnc
 
 -- | <p>Describes a single backup. </p>
 newtype Backup = Backup 
-  { "BackupArn" :: NullOrUndefined (String)
-  , "BackupId" :: NullOrUndefined (BackupId)
-  , "BackupType" :: NullOrUndefined (BackupType)
-  , "CreatedAt" :: NullOrUndefined (Types.Timestamp)
-  , "Description" :: NullOrUndefined (String)
-  , "Engine" :: NullOrUndefined (String)
-  , "EngineModel" :: NullOrUndefined (String)
-  , "EngineVersion" :: NullOrUndefined (String)
-  , "InstanceProfileArn" :: NullOrUndefined (String)
-  , "InstanceType" :: NullOrUndefined (String)
-  , "KeyPair" :: NullOrUndefined (String)
-  , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "S3DataSize" :: NullOrUndefined (Int)
-  , "S3DataUrl" :: NullOrUndefined (String)
-  , "S3LogUrl" :: NullOrUndefined (String)
-  , "SecurityGroupIds" :: NullOrUndefined (Strings)
-  , "ServerName" :: NullOrUndefined (ServerName)
-  , "ServiceRoleArn" :: NullOrUndefined (String)
-  , "Status" :: NullOrUndefined (BackupStatus)
-  , "StatusDescription" :: NullOrUndefined (String)
-  , "SubnetIds" :: NullOrUndefined (Strings)
-  , "ToolsVersion" :: NullOrUndefined (String)
-  , "UserArn" :: NullOrUndefined (String)
+  { "BackupArn" :: Maybe (String)
+  , "BackupId" :: Maybe (BackupId)
+  , "BackupType" :: Maybe (BackupType)
+  , "CreatedAt" :: Maybe (Types.Timestamp)
+  , "Description" :: Maybe (String)
+  , "Engine" :: Maybe (String)
+  , "EngineModel" :: Maybe (String)
+  , "EngineVersion" :: Maybe (String)
+  , "InstanceProfileArn" :: Maybe (String)
+  , "InstanceType" :: Maybe (String)
+  , "KeyPair" :: Maybe (String)
+  , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition)
+  , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition)
+  , "S3DataSize" :: Maybe (Int)
+  , "S3DataUrl" :: Maybe (String)
+  , "S3LogUrl" :: Maybe (String)
+  , "SecurityGroupIds" :: Maybe (Strings)
+  , "ServerName" :: Maybe (ServerName)
+  , "ServiceRoleArn" :: Maybe (String)
+  , "Status" :: Maybe (BackupStatus)
+  , "StatusDescription" :: Maybe (String)
+  , "SubnetIds" :: Maybe (Strings)
+  , "ToolsVersion" :: Maybe (String)
+  , "UserArn" :: Maybe (String)
   }
 derive instance newtypeBackup :: Newtype Backup _
 derive instance repGenericBackup :: Generic Backup _
@@ -146,12 +145,12 @@ instance encodeBackup :: Encode Backup where encode = genericEncode options
 
 -- | Constructs Backup from required parameters
 newBackup :: Backup
-newBackup  = Backup { "BackupArn": (NullOrUndefined Nothing), "BackupId": (NullOrUndefined Nothing), "BackupType": (NullOrUndefined Nothing), "CreatedAt": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Engine": (NullOrUndefined Nothing), "EngineModel": (NullOrUndefined Nothing), "EngineVersion": (NullOrUndefined Nothing), "InstanceProfileArn": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing), "S3DataSize": (NullOrUndefined Nothing), "S3DataUrl": (NullOrUndefined Nothing), "S3LogUrl": (NullOrUndefined Nothing), "SecurityGroupIds": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing), "ServiceRoleArn": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDescription": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing), "ToolsVersion": (NullOrUndefined Nothing), "UserArn": (NullOrUndefined Nothing) }
+newBackup  = Backup { "BackupArn": Nothing, "BackupId": Nothing, "BackupType": Nothing, "CreatedAt": Nothing, "Description": Nothing, "Engine": Nothing, "EngineModel": Nothing, "EngineVersion": Nothing, "InstanceProfileArn": Nothing, "InstanceType": Nothing, "KeyPair": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing, "S3DataSize": Nothing, "S3DataUrl": Nothing, "S3LogUrl": Nothing, "SecurityGroupIds": Nothing, "ServerName": Nothing, "ServiceRoleArn": Nothing, "Status": Nothing, "StatusDescription": Nothing, "SubnetIds": Nothing, "ToolsVersion": Nothing, "UserArn": Nothing }
 
 -- | Constructs Backup's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newBackup' :: ( { "BackupArn" :: NullOrUndefined (String) , "BackupId" :: NullOrUndefined (BackupId) , "BackupType" :: NullOrUndefined (BackupType) , "CreatedAt" :: NullOrUndefined (Types.Timestamp) , "Description" :: NullOrUndefined (String) , "Engine" :: NullOrUndefined (String) , "EngineModel" :: NullOrUndefined (String) , "EngineVersion" :: NullOrUndefined (String) , "InstanceProfileArn" :: NullOrUndefined (String) , "InstanceType" :: NullOrUndefined (String) , "KeyPair" :: NullOrUndefined (String) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "S3DataSize" :: NullOrUndefined (Int) , "S3DataUrl" :: NullOrUndefined (String) , "S3LogUrl" :: NullOrUndefined (String) , "SecurityGroupIds" :: NullOrUndefined (Strings) , "ServerName" :: NullOrUndefined (ServerName) , "ServiceRoleArn" :: NullOrUndefined (String) , "Status" :: NullOrUndefined (BackupStatus) , "StatusDescription" :: NullOrUndefined (String) , "SubnetIds" :: NullOrUndefined (Strings) , "ToolsVersion" :: NullOrUndefined (String) , "UserArn" :: NullOrUndefined (String) } -> {"BackupArn" :: NullOrUndefined (String) , "BackupId" :: NullOrUndefined (BackupId) , "BackupType" :: NullOrUndefined (BackupType) , "CreatedAt" :: NullOrUndefined (Types.Timestamp) , "Description" :: NullOrUndefined (String) , "Engine" :: NullOrUndefined (String) , "EngineModel" :: NullOrUndefined (String) , "EngineVersion" :: NullOrUndefined (String) , "InstanceProfileArn" :: NullOrUndefined (String) , "InstanceType" :: NullOrUndefined (String) , "KeyPair" :: NullOrUndefined (String) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "S3DataSize" :: NullOrUndefined (Int) , "S3DataUrl" :: NullOrUndefined (String) , "S3LogUrl" :: NullOrUndefined (String) , "SecurityGroupIds" :: NullOrUndefined (Strings) , "ServerName" :: NullOrUndefined (ServerName) , "ServiceRoleArn" :: NullOrUndefined (String) , "Status" :: NullOrUndefined (BackupStatus) , "StatusDescription" :: NullOrUndefined (String) , "SubnetIds" :: NullOrUndefined (Strings) , "ToolsVersion" :: NullOrUndefined (String) , "UserArn" :: NullOrUndefined (String) } ) -> Backup
-newBackup'  customize = (Backup <<< customize) { "BackupArn": (NullOrUndefined Nothing), "BackupId": (NullOrUndefined Nothing), "BackupType": (NullOrUndefined Nothing), "CreatedAt": (NullOrUndefined Nothing), "Description": (NullOrUndefined Nothing), "Engine": (NullOrUndefined Nothing), "EngineModel": (NullOrUndefined Nothing), "EngineVersion": (NullOrUndefined Nothing), "InstanceProfileArn": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing), "S3DataSize": (NullOrUndefined Nothing), "S3DataUrl": (NullOrUndefined Nothing), "S3LogUrl": (NullOrUndefined Nothing), "SecurityGroupIds": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing), "ServiceRoleArn": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusDescription": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing), "ToolsVersion": (NullOrUndefined Nothing), "UserArn": (NullOrUndefined Nothing) }
+newBackup' :: ( { "BackupArn" :: Maybe (String) , "BackupId" :: Maybe (BackupId) , "BackupType" :: Maybe (BackupType) , "CreatedAt" :: Maybe (Types.Timestamp) , "Description" :: Maybe (String) , "Engine" :: Maybe (String) , "EngineModel" :: Maybe (String) , "EngineVersion" :: Maybe (String) , "InstanceProfileArn" :: Maybe (String) , "InstanceType" :: Maybe (String) , "KeyPair" :: Maybe (String) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "S3DataSize" :: Maybe (Int) , "S3DataUrl" :: Maybe (String) , "S3LogUrl" :: Maybe (String) , "SecurityGroupIds" :: Maybe (Strings) , "ServerName" :: Maybe (ServerName) , "ServiceRoleArn" :: Maybe (String) , "Status" :: Maybe (BackupStatus) , "StatusDescription" :: Maybe (String) , "SubnetIds" :: Maybe (Strings) , "ToolsVersion" :: Maybe (String) , "UserArn" :: Maybe (String) } -> {"BackupArn" :: Maybe (String) , "BackupId" :: Maybe (BackupId) , "BackupType" :: Maybe (BackupType) , "CreatedAt" :: Maybe (Types.Timestamp) , "Description" :: Maybe (String) , "Engine" :: Maybe (String) , "EngineModel" :: Maybe (String) , "EngineVersion" :: Maybe (String) , "InstanceProfileArn" :: Maybe (String) , "InstanceType" :: Maybe (String) , "KeyPair" :: Maybe (String) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "S3DataSize" :: Maybe (Int) , "S3DataUrl" :: Maybe (String) , "S3LogUrl" :: Maybe (String) , "SecurityGroupIds" :: Maybe (Strings) , "ServerName" :: Maybe (ServerName) , "ServiceRoleArn" :: Maybe (String) , "Status" :: Maybe (BackupStatus) , "StatusDescription" :: Maybe (String) , "SubnetIds" :: Maybe (Strings) , "ToolsVersion" :: Maybe (String) , "UserArn" :: Maybe (String) } ) -> Backup
+newBackup'  customize = (Backup <<< customize) { "BackupArn": Nothing, "BackupId": Nothing, "BackupType": Nothing, "CreatedAt": Nothing, "Description": Nothing, "Engine": Nothing, "EngineModel": Nothing, "EngineVersion": Nothing, "InstanceProfileArn": Nothing, "InstanceType": Nothing, "KeyPair": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing, "S3DataSize": Nothing, "S3DataUrl": Nothing, "S3LogUrl": Nothing, "SecurityGroupIds": Nothing, "ServerName": Nothing, "ServiceRoleArn": Nothing, "Status": Nothing, "StatusDescription": Nothing, "SubnetIds": Nothing, "ToolsVersion": Nothing, "UserArn": Nothing }
 
 
 
@@ -202,7 +201,7 @@ instance encodeBackups :: Encode Backups where encode = genericEncode options
 
 newtype CreateBackupRequest = CreateBackupRequest 
   { "ServerName" :: (ServerName)
-  , "Description" :: NullOrUndefined (String)
+  , "Description" :: Maybe (String)
   }
 derive instance newtypeCreateBackupRequest :: Newtype CreateBackupRequest _
 derive instance repGenericCreateBackupRequest :: Generic CreateBackupRequest _
@@ -212,17 +211,17 @@ instance encodeCreateBackupRequest :: Encode CreateBackupRequest where encode = 
 
 -- | Constructs CreateBackupRequest from required parameters
 newCreateBackupRequest :: ServerName -> CreateBackupRequest
-newCreateBackupRequest _ServerName = CreateBackupRequest { "ServerName": _ServerName, "Description": (NullOrUndefined Nothing) }
+newCreateBackupRequest _ServerName = CreateBackupRequest { "ServerName": _ServerName, "Description": Nothing }
 
 -- | Constructs CreateBackupRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBackupRequest' :: ServerName -> ( { "ServerName" :: (ServerName) , "Description" :: NullOrUndefined (String) } -> {"ServerName" :: (ServerName) , "Description" :: NullOrUndefined (String) } ) -> CreateBackupRequest
-newCreateBackupRequest' _ServerName customize = (CreateBackupRequest <<< customize) { "ServerName": _ServerName, "Description": (NullOrUndefined Nothing) }
+newCreateBackupRequest' :: ServerName -> ( { "ServerName" :: (ServerName) , "Description" :: Maybe (String) } -> {"ServerName" :: (ServerName) , "Description" :: Maybe (String) } ) -> CreateBackupRequest
+newCreateBackupRequest' _ServerName customize = (CreateBackupRequest <<< customize) { "ServerName": _ServerName, "Description": Nothing }
 
 
 
 newtype CreateBackupResponse = CreateBackupResponse 
-  { "Backup" :: NullOrUndefined (Backup)
+  { "Backup" :: Maybe (Backup)
   }
 derive instance newtypeCreateBackupResponse :: Newtype CreateBackupResponse _
 derive instance repGenericCreateBackupResponse :: Generic CreateBackupResponse _
@@ -232,33 +231,33 @@ instance encodeCreateBackupResponse :: Encode CreateBackupResponse where encode 
 
 -- | Constructs CreateBackupResponse from required parameters
 newCreateBackupResponse :: CreateBackupResponse
-newCreateBackupResponse  = CreateBackupResponse { "Backup": (NullOrUndefined Nothing) }
+newCreateBackupResponse  = CreateBackupResponse { "Backup": Nothing }
 
 -- | Constructs CreateBackupResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateBackupResponse' :: ( { "Backup" :: NullOrUndefined (Backup) } -> {"Backup" :: NullOrUndefined (Backup) } ) -> CreateBackupResponse
-newCreateBackupResponse'  customize = (CreateBackupResponse <<< customize) { "Backup": (NullOrUndefined Nothing) }
+newCreateBackupResponse' :: ( { "Backup" :: Maybe (Backup) } -> {"Backup" :: Maybe (Backup) } ) -> CreateBackupResponse
+newCreateBackupResponse'  customize = (CreateBackupResponse <<< customize) { "Backup": Nothing }
 
 
 
 newtype CreateServerRequest = CreateServerRequest 
-  { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean)
-  , "DisableAutomatedBackup" :: NullOrUndefined (Boolean)
-  , "Engine" :: NullOrUndefined (String)
-  , "EngineModel" :: NullOrUndefined (String)
-  , "EngineVersion" :: NullOrUndefined (String)
-  , "EngineAttributes" :: NullOrUndefined (EngineAttributes)
-  , "BackupRetentionCount" :: NullOrUndefined (BackupRetentionCountDefinition)
+  { "AssociatePublicIpAddress" :: Maybe (Boolean)
+  , "DisableAutomatedBackup" :: Maybe (Boolean)
+  , "Engine" :: Maybe (String)
+  , "EngineModel" :: Maybe (String)
+  , "EngineVersion" :: Maybe (String)
+  , "EngineAttributes" :: Maybe (EngineAttributes)
+  , "BackupRetentionCount" :: Maybe (BackupRetentionCountDefinition)
   , "ServerName" :: (ServerName)
   , "InstanceProfileArn" :: (InstanceProfileArn)
   , "InstanceType" :: (String)
-  , "KeyPair" :: NullOrUndefined (KeyPair)
-  , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "SecurityGroupIds" :: NullOrUndefined (Strings)
+  , "KeyPair" :: Maybe (KeyPair)
+  , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition)
+  , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition)
+  , "SecurityGroupIds" :: Maybe (Strings)
   , "ServiceRoleArn" :: (ServiceRoleArn)
-  , "SubnetIds" :: NullOrUndefined (Strings)
-  , "BackupId" :: NullOrUndefined (BackupId)
+  , "SubnetIds" :: Maybe (Strings)
+  , "BackupId" :: Maybe (BackupId)
   }
 derive instance newtypeCreateServerRequest :: Newtype CreateServerRequest _
 derive instance repGenericCreateServerRequest :: Generic CreateServerRequest _
@@ -268,17 +267,17 @@ instance encodeCreateServerRequest :: Encode CreateServerRequest where encode = 
 
 -- | Constructs CreateServerRequest from required parameters
 newCreateServerRequest :: InstanceProfileArn -> String -> ServerName -> ServiceRoleArn -> CreateServerRequest
-newCreateServerRequest _InstanceProfileArn _InstanceType _ServerName _ServiceRoleArn = CreateServerRequest { "InstanceProfileArn": _InstanceProfileArn, "InstanceType": _InstanceType, "ServerName": _ServerName, "ServiceRoleArn": _ServiceRoleArn, "AssociatePublicIpAddress": (NullOrUndefined Nothing), "BackupId": (NullOrUndefined Nothing), "BackupRetentionCount": (NullOrUndefined Nothing), "DisableAutomatedBackup": (NullOrUndefined Nothing), "Engine": (NullOrUndefined Nothing), "EngineAttributes": (NullOrUndefined Nothing), "EngineModel": (NullOrUndefined Nothing), "EngineVersion": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing), "SecurityGroupIds": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing) }
+newCreateServerRequest _InstanceProfileArn _InstanceType _ServerName _ServiceRoleArn = CreateServerRequest { "InstanceProfileArn": _InstanceProfileArn, "InstanceType": _InstanceType, "ServerName": _ServerName, "ServiceRoleArn": _ServiceRoleArn, "AssociatePublicIpAddress": Nothing, "BackupId": Nothing, "BackupRetentionCount": Nothing, "DisableAutomatedBackup": Nothing, "Engine": Nothing, "EngineAttributes": Nothing, "EngineModel": Nothing, "EngineVersion": Nothing, "KeyPair": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing, "SecurityGroupIds": Nothing, "SubnetIds": Nothing }
 
 -- | Constructs CreateServerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateServerRequest' :: InstanceProfileArn -> String -> ServerName -> ServiceRoleArn -> ( { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean) , "DisableAutomatedBackup" :: NullOrUndefined (Boolean) , "Engine" :: NullOrUndefined (String) , "EngineModel" :: NullOrUndefined (String) , "EngineVersion" :: NullOrUndefined (String) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) , "BackupRetentionCount" :: NullOrUndefined (BackupRetentionCountDefinition) , "ServerName" :: (ServerName) , "InstanceProfileArn" :: (InstanceProfileArn) , "InstanceType" :: (String) , "KeyPair" :: NullOrUndefined (KeyPair) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) , "SecurityGroupIds" :: NullOrUndefined (Strings) , "ServiceRoleArn" :: (ServiceRoleArn) , "SubnetIds" :: NullOrUndefined (Strings) , "BackupId" :: NullOrUndefined (BackupId) } -> {"AssociatePublicIpAddress" :: NullOrUndefined (Boolean) , "DisableAutomatedBackup" :: NullOrUndefined (Boolean) , "Engine" :: NullOrUndefined (String) , "EngineModel" :: NullOrUndefined (String) , "EngineVersion" :: NullOrUndefined (String) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) , "BackupRetentionCount" :: NullOrUndefined (BackupRetentionCountDefinition) , "ServerName" :: (ServerName) , "InstanceProfileArn" :: (InstanceProfileArn) , "InstanceType" :: (String) , "KeyPair" :: NullOrUndefined (KeyPair) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) , "SecurityGroupIds" :: NullOrUndefined (Strings) , "ServiceRoleArn" :: (ServiceRoleArn) , "SubnetIds" :: NullOrUndefined (Strings) , "BackupId" :: NullOrUndefined (BackupId) } ) -> CreateServerRequest
-newCreateServerRequest' _InstanceProfileArn _InstanceType _ServerName _ServiceRoleArn customize = (CreateServerRequest <<< customize) { "InstanceProfileArn": _InstanceProfileArn, "InstanceType": _InstanceType, "ServerName": _ServerName, "ServiceRoleArn": _ServiceRoleArn, "AssociatePublicIpAddress": (NullOrUndefined Nothing), "BackupId": (NullOrUndefined Nothing), "BackupRetentionCount": (NullOrUndefined Nothing), "DisableAutomatedBackup": (NullOrUndefined Nothing), "Engine": (NullOrUndefined Nothing), "EngineAttributes": (NullOrUndefined Nothing), "EngineModel": (NullOrUndefined Nothing), "EngineVersion": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing), "SecurityGroupIds": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing) }
+newCreateServerRequest' :: InstanceProfileArn -> String -> ServerName -> ServiceRoleArn -> ( { "AssociatePublicIpAddress" :: Maybe (Boolean) , "DisableAutomatedBackup" :: Maybe (Boolean) , "Engine" :: Maybe (String) , "EngineModel" :: Maybe (String) , "EngineVersion" :: Maybe (String) , "EngineAttributes" :: Maybe (EngineAttributes) , "BackupRetentionCount" :: Maybe (BackupRetentionCountDefinition) , "ServerName" :: (ServerName) , "InstanceProfileArn" :: (InstanceProfileArn) , "InstanceType" :: (String) , "KeyPair" :: Maybe (KeyPair) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) , "SecurityGroupIds" :: Maybe (Strings) , "ServiceRoleArn" :: (ServiceRoleArn) , "SubnetIds" :: Maybe (Strings) , "BackupId" :: Maybe (BackupId) } -> {"AssociatePublicIpAddress" :: Maybe (Boolean) , "DisableAutomatedBackup" :: Maybe (Boolean) , "Engine" :: Maybe (String) , "EngineModel" :: Maybe (String) , "EngineVersion" :: Maybe (String) , "EngineAttributes" :: Maybe (EngineAttributes) , "BackupRetentionCount" :: Maybe (BackupRetentionCountDefinition) , "ServerName" :: (ServerName) , "InstanceProfileArn" :: (InstanceProfileArn) , "InstanceType" :: (String) , "KeyPair" :: Maybe (KeyPair) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) , "SecurityGroupIds" :: Maybe (Strings) , "ServiceRoleArn" :: (ServiceRoleArn) , "SubnetIds" :: Maybe (Strings) , "BackupId" :: Maybe (BackupId) } ) -> CreateServerRequest
+newCreateServerRequest' _InstanceProfileArn _InstanceType _ServerName _ServiceRoleArn customize = (CreateServerRequest <<< customize) { "InstanceProfileArn": _InstanceProfileArn, "InstanceType": _InstanceType, "ServerName": _ServerName, "ServiceRoleArn": _ServiceRoleArn, "AssociatePublicIpAddress": Nothing, "BackupId": Nothing, "BackupRetentionCount": Nothing, "DisableAutomatedBackup": Nothing, "Engine": Nothing, "EngineAttributes": Nothing, "EngineModel": Nothing, "EngineVersion": Nothing, "KeyPair": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing, "SecurityGroupIds": Nothing, "SubnetIds": Nothing }
 
 
 
 newtype CreateServerResponse = CreateServerResponse 
-  { "Server" :: NullOrUndefined (Server)
+  { "Server" :: Maybe (Server)
   }
 derive instance newtypeCreateServerResponse :: Newtype CreateServerResponse _
 derive instance repGenericCreateServerResponse :: Generic CreateServerResponse _
@@ -288,12 +287,12 @@ instance encodeCreateServerResponse :: Encode CreateServerResponse where encode 
 
 -- | Constructs CreateServerResponse from required parameters
 newCreateServerResponse :: CreateServerResponse
-newCreateServerResponse  = CreateServerResponse { "Server": (NullOrUndefined Nothing) }
+newCreateServerResponse  = CreateServerResponse { "Server": Nothing }
 
 -- | Constructs CreateServerResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newCreateServerResponse' :: ( { "Server" :: NullOrUndefined (Server) } -> {"Server" :: NullOrUndefined (Server) } ) -> CreateServerResponse
-newCreateServerResponse'  customize = (CreateServerResponse <<< customize) { "Server": (NullOrUndefined Nothing) }
+newCreateServerResponse' :: ( { "Server" :: Maybe (Server) } -> {"Server" :: Maybe (Server) } ) -> CreateServerResponse
+newCreateServerResponse'  customize = (CreateServerResponse <<< customize) { "Server": Nothing }
 
 
 
@@ -365,7 +364,7 @@ instance encodeDescribeAccountAttributesRequest :: Encode DescribeAccountAttribu
 
 
 newtype DescribeAccountAttributesResponse = DescribeAccountAttributesResponse 
-  { "Attributes" :: NullOrUndefined (AccountAttributes)
+  { "Attributes" :: Maybe (AccountAttributes)
   }
 derive instance newtypeDescribeAccountAttributesResponse :: Newtype DescribeAccountAttributesResponse _
 derive instance repGenericDescribeAccountAttributesResponse :: Generic DescribeAccountAttributesResponse _
@@ -375,20 +374,20 @@ instance encodeDescribeAccountAttributesResponse :: Encode DescribeAccountAttrib
 
 -- | Constructs DescribeAccountAttributesResponse from required parameters
 newDescribeAccountAttributesResponse :: DescribeAccountAttributesResponse
-newDescribeAccountAttributesResponse  = DescribeAccountAttributesResponse { "Attributes": (NullOrUndefined Nothing) }
+newDescribeAccountAttributesResponse  = DescribeAccountAttributesResponse { "Attributes": Nothing }
 
 -- | Constructs DescribeAccountAttributesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeAccountAttributesResponse' :: ( { "Attributes" :: NullOrUndefined (AccountAttributes) } -> {"Attributes" :: NullOrUndefined (AccountAttributes) } ) -> DescribeAccountAttributesResponse
-newDescribeAccountAttributesResponse'  customize = (DescribeAccountAttributesResponse <<< customize) { "Attributes": (NullOrUndefined Nothing) }
+newDescribeAccountAttributesResponse' :: ( { "Attributes" :: Maybe (AccountAttributes) } -> {"Attributes" :: Maybe (AccountAttributes) } ) -> DescribeAccountAttributesResponse
+newDescribeAccountAttributesResponse'  customize = (DescribeAccountAttributesResponse <<< customize) { "Attributes": Nothing }
 
 
 
 newtype DescribeBackupsRequest = DescribeBackupsRequest 
-  { "BackupId" :: NullOrUndefined (BackupId)
-  , "ServerName" :: NullOrUndefined (ServerName)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  { "BackupId" :: Maybe (BackupId)
+  , "ServerName" :: Maybe (ServerName)
+  , "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeDescribeBackupsRequest :: Newtype DescribeBackupsRequest _
 derive instance repGenericDescribeBackupsRequest :: Generic DescribeBackupsRequest _
@@ -398,18 +397,18 @@ instance encodeDescribeBackupsRequest :: Encode DescribeBackupsRequest where enc
 
 -- | Constructs DescribeBackupsRequest from required parameters
 newDescribeBackupsRequest :: DescribeBackupsRequest
-newDescribeBackupsRequest  = DescribeBackupsRequest { "BackupId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing) }
+newDescribeBackupsRequest  = DescribeBackupsRequest { "BackupId": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "ServerName": Nothing }
 
 -- | Constructs DescribeBackupsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeBackupsRequest' :: ( { "BackupId" :: NullOrUndefined (BackupId) , "ServerName" :: NullOrUndefined (ServerName) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"BackupId" :: NullOrUndefined (BackupId) , "ServerName" :: NullOrUndefined (ServerName) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> DescribeBackupsRequest
-newDescribeBackupsRequest'  customize = (DescribeBackupsRequest <<< customize) { "BackupId": (NullOrUndefined Nothing), "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing) }
+newDescribeBackupsRequest' :: ( { "BackupId" :: Maybe (BackupId) , "ServerName" :: Maybe (ServerName) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } -> {"BackupId" :: Maybe (BackupId) , "ServerName" :: Maybe (ServerName) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } ) -> DescribeBackupsRequest
+newDescribeBackupsRequest'  customize = (DescribeBackupsRequest <<< customize) { "BackupId": Nothing, "MaxResults": Nothing, "NextToken": Nothing, "ServerName": Nothing }
 
 
 
 newtype DescribeBackupsResponse = DescribeBackupsResponse 
-  { "Backups" :: NullOrUndefined (Backups)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Backups" :: Maybe (Backups)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeBackupsResponse :: Newtype DescribeBackupsResponse _
 derive instance repGenericDescribeBackupsResponse :: Generic DescribeBackupsResponse _
@@ -419,19 +418,19 @@ instance encodeDescribeBackupsResponse :: Encode DescribeBackupsResponse where e
 
 -- | Constructs DescribeBackupsResponse from required parameters
 newDescribeBackupsResponse :: DescribeBackupsResponse
-newDescribeBackupsResponse  = DescribeBackupsResponse { "Backups": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeBackupsResponse  = DescribeBackupsResponse { "Backups": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeBackupsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeBackupsResponse' :: ( { "Backups" :: NullOrUndefined (Backups) , "NextToken" :: NullOrUndefined (String) } -> {"Backups" :: NullOrUndefined (Backups) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeBackupsResponse
-newDescribeBackupsResponse'  customize = (DescribeBackupsResponse <<< customize) { "Backups": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeBackupsResponse' :: ( { "Backups" :: Maybe (Backups) , "NextToken" :: Maybe (String) } -> {"Backups" :: Maybe (Backups) , "NextToken" :: Maybe (String) } ) -> DescribeBackupsResponse
+newDescribeBackupsResponse'  customize = (DescribeBackupsResponse <<< customize) { "Backups": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeEventsRequest = DescribeEventsRequest 
   { "ServerName" :: (ServerName)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  , "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeDescribeEventsRequest :: Newtype DescribeEventsRequest _
 derive instance repGenericDescribeEventsRequest :: Generic DescribeEventsRequest _
@@ -441,18 +440,18 @@ instance encodeDescribeEventsRequest :: Encode DescribeEventsRequest where encod
 
 -- | Constructs DescribeEventsRequest from required parameters
 newDescribeEventsRequest :: ServerName -> DescribeEventsRequest
-newDescribeEventsRequest _ServerName = DescribeEventsRequest { "ServerName": _ServerName, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeEventsRequest _ServerName = DescribeEventsRequest { "ServerName": _ServerName, "MaxResults": Nothing, "NextToken": Nothing }
 
 -- | Constructs DescribeEventsRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventsRequest' :: ServerName -> ( { "ServerName" :: (ServerName) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"ServerName" :: (ServerName) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> DescribeEventsRequest
-newDescribeEventsRequest' _ServerName customize = (DescribeEventsRequest <<< customize) { "ServerName": _ServerName, "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing) }
+newDescribeEventsRequest' :: ServerName -> ( { "ServerName" :: (ServerName) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } -> {"ServerName" :: (ServerName) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } ) -> DescribeEventsRequest
+newDescribeEventsRequest' _ServerName customize = (DescribeEventsRequest <<< customize) { "ServerName": _ServerName, "MaxResults": Nothing, "NextToken": Nothing }
 
 
 
 newtype DescribeEventsResponse = DescribeEventsResponse 
-  { "ServerEvents" :: NullOrUndefined (ServerEvents)
-  , "NextToken" :: NullOrUndefined (String)
+  { "ServerEvents" :: Maybe (ServerEvents)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeEventsResponse :: Newtype DescribeEventsResponse _
 derive instance repGenericDescribeEventsResponse :: Generic DescribeEventsResponse _
@@ -462,12 +461,12 @@ instance encodeDescribeEventsResponse :: Encode DescribeEventsResponse where enc
 
 -- | Constructs DescribeEventsResponse from required parameters
 newDescribeEventsResponse :: DescribeEventsResponse
-newDescribeEventsResponse  = DescribeEventsResponse { "NextToken": (NullOrUndefined Nothing), "ServerEvents": (NullOrUndefined Nothing) }
+newDescribeEventsResponse  = DescribeEventsResponse { "NextToken": Nothing, "ServerEvents": Nothing }
 
 -- | Constructs DescribeEventsResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeEventsResponse' :: ( { "ServerEvents" :: NullOrUndefined (ServerEvents) , "NextToken" :: NullOrUndefined (String) } -> {"ServerEvents" :: NullOrUndefined (ServerEvents) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeEventsResponse
-newDescribeEventsResponse'  customize = (DescribeEventsResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "ServerEvents": (NullOrUndefined Nothing) }
+newDescribeEventsResponse' :: ( { "ServerEvents" :: Maybe (ServerEvents) , "NextToken" :: Maybe (String) } -> {"ServerEvents" :: Maybe (ServerEvents) , "NextToken" :: Maybe (String) } ) -> DescribeEventsResponse
+newDescribeEventsResponse'  customize = (DescribeEventsResponse <<< customize) { "NextToken": Nothing, "ServerEvents": Nothing }
 
 
 
@@ -493,8 +492,8 @@ newDescribeNodeAssociationStatusRequest' _NodeAssociationStatusToken _ServerName
 
 
 newtype DescribeNodeAssociationStatusResponse = DescribeNodeAssociationStatusResponse 
-  { "NodeAssociationStatus" :: NullOrUndefined (NodeAssociationStatus)
-  , "EngineAttributes" :: NullOrUndefined (EngineAttributes)
+  { "NodeAssociationStatus" :: Maybe (NodeAssociationStatus)
+  , "EngineAttributes" :: Maybe (EngineAttributes)
   }
 derive instance newtypeDescribeNodeAssociationStatusResponse :: Newtype DescribeNodeAssociationStatusResponse _
 derive instance repGenericDescribeNodeAssociationStatusResponse :: Generic DescribeNodeAssociationStatusResponse _
@@ -504,19 +503,19 @@ instance encodeDescribeNodeAssociationStatusResponse :: Encode DescribeNodeAssoc
 
 -- | Constructs DescribeNodeAssociationStatusResponse from required parameters
 newDescribeNodeAssociationStatusResponse :: DescribeNodeAssociationStatusResponse
-newDescribeNodeAssociationStatusResponse  = DescribeNodeAssociationStatusResponse { "EngineAttributes": (NullOrUndefined Nothing), "NodeAssociationStatus": (NullOrUndefined Nothing) }
+newDescribeNodeAssociationStatusResponse  = DescribeNodeAssociationStatusResponse { "EngineAttributes": Nothing, "NodeAssociationStatus": Nothing }
 
 -- | Constructs DescribeNodeAssociationStatusResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeNodeAssociationStatusResponse' :: ( { "NodeAssociationStatus" :: NullOrUndefined (NodeAssociationStatus) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) } -> {"NodeAssociationStatus" :: NullOrUndefined (NodeAssociationStatus) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) } ) -> DescribeNodeAssociationStatusResponse
-newDescribeNodeAssociationStatusResponse'  customize = (DescribeNodeAssociationStatusResponse <<< customize) { "EngineAttributes": (NullOrUndefined Nothing), "NodeAssociationStatus": (NullOrUndefined Nothing) }
+newDescribeNodeAssociationStatusResponse' :: ( { "NodeAssociationStatus" :: Maybe (NodeAssociationStatus) , "EngineAttributes" :: Maybe (EngineAttributes) } -> {"NodeAssociationStatus" :: Maybe (NodeAssociationStatus) , "EngineAttributes" :: Maybe (EngineAttributes) } ) -> DescribeNodeAssociationStatusResponse
+newDescribeNodeAssociationStatusResponse'  customize = (DescribeNodeAssociationStatusResponse <<< customize) { "EngineAttributes": Nothing, "NodeAssociationStatus": Nothing }
 
 
 
 newtype DescribeServersRequest = DescribeServersRequest 
-  { "ServerName" :: NullOrUndefined (ServerName)
-  , "NextToken" :: NullOrUndefined (NextToken)
-  , "MaxResults" :: NullOrUndefined (MaxResults)
+  { "ServerName" :: Maybe (ServerName)
+  , "NextToken" :: Maybe (NextToken)
+  , "MaxResults" :: Maybe (MaxResults)
   }
 derive instance newtypeDescribeServersRequest :: Newtype DescribeServersRequest _
 derive instance repGenericDescribeServersRequest :: Generic DescribeServersRequest _
@@ -526,18 +525,18 @@ instance encodeDescribeServersRequest :: Encode DescribeServersRequest where enc
 
 -- | Constructs DescribeServersRequest from required parameters
 newDescribeServersRequest :: DescribeServersRequest
-newDescribeServersRequest  = DescribeServersRequest { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing) }
+newDescribeServersRequest  = DescribeServersRequest { "MaxResults": Nothing, "NextToken": Nothing, "ServerName": Nothing }
 
 -- | Constructs DescribeServersRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeServersRequest' :: ( { "ServerName" :: NullOrUndefined (ServerName) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } -> {"ServerName" :: NullOrUndefined (ServerName) , "NextToken" :: NullOrUndefined (NextToken) , "MaxResults" :: NullOrUndefined (MaxResults) } ) -> DescribeServersRequest
-newDescribeServersRequest'  customize = (DescribeServersRequest <<< customize) { "MaxResults": (NullOrUndefined Nothing), "NextToken": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing) }
+newDescribeServersRequest' :: ( { "ServerName" :: Maybe (ServerName) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } -> {"ServerName" :: Maybe (ServerName) , "NextToken" :: Maybe (NextToken) , "MaxResults" :: Maybe (MaxResults) } ) -> DescribeServersRequest
+newDescribeServersRequest'  customize = (DescribeServersRequest <<< customize) { "MaxResults": Nothing, "NextToken": Nothing, "ServerName": Nothing }
 
 
 
 newtype DescribeServersResponse = DescribeServersResponse 
-  { "Servers" :: NullOrUndefined (Servers)
-  , "NextToken" :: NullOrUndefined (String)
+  { "Servers" :: Maybe (Servers)
+  , "NextToken" :: Maybe (String)
   }
 derive instance newtypeDescribeServersResponse :: Newtype DescribeServersResponse _
 derive instance repGenericDescribeServersResponse :: Generic DescribeServersResponse _
@@ -547,19 +546,19 @@ instance encodeDescribeServersResponse :: Encode DescribeServersResponse where e
 
 -- | Constructs DescribeServersResponse from required parameters
 newDescribeServersResponse :: DescribeServersResponse
-newDescribeServersResponse  = DescribeServersResponse { "NextToken": (NullOrUndefined Nothing), "Servers": (NullOrUndefined Nothing) }
+newDescribeServersResponse  = DescribeServersResponse { "NextToken": Nothing, "Servers": Nothing }
 
 -- | Constructs DescribeServersResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDescribeServersResponse' :: ( { "Servers" :: NullOrUndefined (Servers) , "NextToken" :: NullOrUndefined (String) } -> {"Servers" :: NullOrUndefined (Servers) , "NextToken" :: NullOrUndefined (String) } ) -> DescribeServersResponse
-newDescribeServersResponse'  customize = (DescribeServersResponse <<< customize) { "NextToken": (NullOrUndefined Nothing), "Servers": (NullOrUndefined Nothing) }
+newDescribeServersResponse' :: ( { "Servers" :: Maybe (Servers) , "NextToken" :: Maybe (String) } -> {"Servers" :: Maybe (Servers) , "NextToken" :: Maybe (String) } ) -> DescribeServersResponse
+newDescribeServersResponse'  customize = (DescribeServersResponse <<< customize) { "NextToken": Nothing, "Servers": Nothing }
 
 
 
 newtype DisassociateNodeRequest = DisassociateNodeRequest 
   { "ServerName" :: (ServerName)
   , "NodeName" :: (NodeName)
-  , "EngineAttributes" :: NullOrUndefined (EngineAttributes)
+  , "EngineAttributes" :: Maybe (EngineAttributes)
   }
 derive instance newtypeDisassociateNodeRequest :: Newtype DisassociateNodeRequest _
 derive instance repGenericDisassociateNodeRequest :: Generic DisassociateNodeRequest _
@@ -569,17 +568,17 @@ instance encodeDisassociateNodeRequest :: Encode DisassociateNodeRequest where e
 
 -- | Constructs DisassociateNodeRequest from required parameters
 newDisassociateNodeRequest :: NodeName -> ServerName -> DisassociateNodeRequest
-newDisassociateNodeRequest _NodeName _ServerName = DisassociateNodeRequest { "NodeName": _NodeName, "ServerName": _ServerName, "EngineAttributes": (NullOrUndefined Nothing) }
+newDisassociateNodeRequest _NodeName _ServerName = DisassociateNodeRequest { "NodeName": _NodeName, "ServerName": _ServerName, "EngineAttributes": Nothing }
 
 -- | Constructs DisassociateNodeRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisassociateNodeRequest' :: NodeName -> ServerName -> ( { "ServerName" :: (ServerName) , "NodeName" :: (NodeName) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) } -> {"ServerName" :: (ServerName) , "NodeName" :: (NodeName) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) } ) -> DisassociateNodeRequest
-newDisassociateNodeRequest' _NodeName _ServerName customize = (DisassociateNodeRequest <<< customize) { "NodeName": _NodeName, "ServerName": _ServerName, "EngineAttributes": (NullOrUndefined Nothing) }
+newDisassociateNodeRequest' :: NodeName -> ServerName -> ( { "ServerName" :: (ServerName) , "NodeName" :: (NodeName) , "EngineAttributes" :: Maybe (EngineAttributes) } -> {"ServerName" :: (ServerName) , "NodeName" :: (NodeName) , "EngineAttributes" :: Maybe (EngineAttributes) } ) -> DisassociateNodeRequest
+newDisassociateNodeRequest' _NodeName _ServerName customize = (DisassociateNodeRequest <<< customize) { "NodeName": _NodeName, "ServerName": _ServerName, "EngineAttributes": Nothing }
 
 
 
 newtype DisassociateNodeResponse = DisassociateNodeResponse 
-  { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken)
+  { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken)
   }
 derive instance newtypeDisassociateNodeResponse :: Newtype DisassociateNodeResponse _
 derive instance repGenericDisassociateNodeResponse :: Generic DisassociateNodeResponse _
@@ -589,19 +588,19 @@ instance encodeDisassociateNodeResponse :: Encode DisassociateNodeResponse where
 
 -- | Constructs DisassociateNodeResponse from required parameters
 newDisassociateNodeResponse :: DisassociateNodeResponse
-newDisassociateNodeResponse  = DisassociateNodeResponse { "NodeAssociationStatusToken": (NullOrUndefined Nothing) }
+newDisassociateNodeResponse  = DisassociateNodeResponse { "NodeAssociationStatusToken": Nothing }
 
 -- | Constructs DisassociateNodeResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newDisassociateNodeResponse' :: ( { "NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) } -> {"NodeAssociationStatusToken" :: NullOrUndefined (NodeAssociationStatusToken) } ) -> DisassociateNodeResponse
-newDisassociateNodeResponse'  customize = (DisassociateNodeResponse <<< customize) { "NodeAssociationStatusToken": (NullOrUndefined Nothing) }
+newDisassociateNodeResponse' :: ( { "NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) } -> {"NodeAssociationStatusToken" :: Maybe (NodeAssociationStatusToken) } ) -> DisassociateNodeResponse
+newDisassociateNodeResponse'  customize = (DisassociateNodeResponse <<< customize) { "NodeAssociationStatusToken": Nothing }
 
 
 
 -- | <p>A name and value pair that is specific to the engine of the server. </p>
 newtype EngineAttribute = EngineAttribute 
-  { "Name" :: NullOrUndefined (EngineAttributeName)
-  , "Value" :: NullOrUndefined (EngineAttributeValue)
+  { "Name" :: Maybe (EngineAttributeName)
+  , "Value" :: Maybe (EngineAttributeValue)
   }
 derive instance newtypeEngineAttribute :: Newtype EngineAttribute _
 derive instance repGenericEngineAttribute :: Generic EngineAttribute _
@@ -611,12 +610,12 @@ instance encodeEngineAttribute :: Encode EngineAttribute where encode = genericE
 
 -- | Constructs EngineAttribute from required parameters
 newEngineAttribute :: EngineAttribute
-newEngineAttribute  = EngineAttribute { "Name": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newEngineAttribute  = EngineAttribute { "Name": Nothing, "Value": Nothing }
 
 -- | Constructs EngineAttribute's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newEngineAttribute' :: ( { "Name" :: NullOrUndefined (EngineAttributeName) , "Value" :: NullOrUndefined (EngineAttributeValue) } -> {"Name" :: NullOrUndefined (EngineAttributeName) , "Value" :: NullOrUndefined (EngineAttributeValue) } ) -> EngineAttribute
-newEngineAttribute'  customize = (EngineAttribute <<< customize) { "Name": (NullOrUndefined Nothing), "Value": (NullOrUndefined Nothing) }
+newEngineAttribute' :: ( { "Name" :: Maybe (EngineAttributeName) , "Value" :: Maybe (EngineAttributeValue) } -> {"Name" :: Maybe (EngineAttributeName) , "Value" :: Maybe (EngineAttributeValue) } ) -> EngineAttribute
+newEngineAttribute'  customize = (EngineAttribute <<< customize) { "Name": Nothing, "Value": Nothing }
 
 
 
@@ -658,7 +657,7 @@ instance encodeInstanceProfileArn :: Encode InstanceProfileArn where encode = ge
 
 -- | <p>This occurs when the provided nextToken is not valid. </p>
 newtype InvalidNextTokenException = InvalidNextTokenException 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidNextTokenException :: Newtype InvalidNextTokenException _
 derive instance repGenericInvalidNextTokenException :: Generic InvalidNextTokenException _
@@ -668,18 +667,18 @@ instance encodeInvalidNextTokenException :: Encode InvalidNextTokenException whe
 
 -- | Constructs InvalidNextTokenException from required parameters
 newInvalidNextTokenException :: InvalidNextTokenException
-newInvalidNextTokenException  = InvalidNextTokenException { "Message": (NullOrUndefined Nothing) }
+newInvalidNextTokenException  = InvalidNextTokenException { "Message": Nothing }
 
 -- | Constructs InvalidNextTokenException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidNextTokenException' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidNextTokenException
-newInvalidNextTokenException'  customize = (InvalidNextTokenException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidNextTokenException' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidNextTokenException
+newInvalidNextTokenException'  customize = (InvalidNextTokenException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The resource is in a state that does not allow you to perform a specified action. </p>
 newtype InvalidStateException = InvalidStateException 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeInvalidStateException :: Newtype InvalidStateException _
 derive instance repGenericInvalidStateException :: Generic InvalidStateException _
@@ -689,12 +688,12 @@ instance encodeInvalidStateException :: Encode InvalidStateException where encod
 
 -- | Constructs InvalidStateException from required parameters
 newInvalidStateException :: InvalidStateException
-newInvalidStateException  = InvalidStateException { "Message": (NullOrUndefined Nothing) }
+newInvalidStateException  = InvalidStateException { "Message": Nothing }
 
 -- | Constructs InvalidStateException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newInvalidStateException' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> InvalidStateException
-newInvalidStateException'  customize = (InvalidStateException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newInvalidStateException' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> InvalidStateException
+newInvalidStateException'  customize = (InvalidStateException <<< customize) { "Message": Nothing }
 
 
 
@@ -709,7 +708,7 @@ instance encodeKeyPair :: Encode KeyPair where encode = genericEncode options
 
 -- | <p>The limit of servers or backups has been reached. </p>
 newtype LimitExceededException = LimitExceededException 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeLimitExceededException :: Newtype LimitExceededException _
 derive instance repGenericLimitExceededException :: Generic LimitExceededException _
@@ -719,12 +718,12 @@ instance encodeLimitExceededException :: Encode LimitExceededException where enc
 
 -- | Constructs LimitExceededException from required parameters
 newLimitExceededException :: LimitExceededException
-newLimitExceededException  = LimitExceededException { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException  = LimitExceededException { "Message": Nothing }
 
 -- | Constructs LimitExceededException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newLimitExceededException' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> LimitExceededException
-newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newLimitExceededException' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> LimitExceededException
+newLimitExceededException'  customize = (LimitExceededException <<< customize) { "Message": Nothing }
 
 
 
@@ -786,7 +785,7 @@ instance encodeNodeName :: Encode NodeName where encode = genericEncode options
 
 -- | <p>The requested resource cannot be created because it already exists. </p>
 newtype ResourceAlreadyExistsException = ResourceAlreadyExistsException 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeResourceAlreadyExistsException :: Newtype ResourceAlreadyExistsException _
 derive instance repGenericResourceAlreadyExistsException :: Generic ResourceAlreadyExistsException _
@@ -796,18 +795,18 @@ instance encodeResourceAlreadyExistsException :: Encode ResourceAlreadyExistsExc
 
 -- | Constructs ResourceAlreadyExistsException from required parameters
 newResourceAlreadyExistsException :: ResourceAlreadyExistsException
-newResourceAlreadyExistsException  = ResourceAlreadyExistsException { "Message": (NullOrUndefined Nothing) }
+newResourceAlreadyExistsException  = ResourceAlreadyExistsException { "Message": Nothing }
 
 -- | Constructs ResourceAlreadyExistsException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceAlreadyExistsException' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> ResourceAlreadyExistsException
-newResourceAlreadyExistsException'  customize = (ResourceAlreadyExistsException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceAlreadyExistsException' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> ResourceAlreadyExistsException
+newResourceAlreadyExistsException'  customize = (ResourceAlreadyExistsException <<< customize) { "Message": Nothing }
 
 
 
 -- | <p>The requested resource does not exist, or access was denied. </p>
 newtype ResourceNotFoundException = ResourceNotFoundException 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeResourceNotFoundException :: Newtype ResourceNotFoundException _
 derive instance repGenericResourceNotFoundException :: Generic ResourceNotFoundException _
@@ -817,20 +816,20 @@ instance encodeResourceNotFoundException :: Encode ResourceNotFoundException whe
 
 -- | Constructs ResourceNotFoundException from required parameters
 newResourceNotFoundException :: ResourceNotFoundException
-newResourceNotFoundException  = ResourceNotFoundException { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException  = ResourceNotFoundException { "Message": Nothing }
 
 -- | Constructs ResourceNotFoundException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newResourceNotFoundException' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> ResourceNotFoundException
-newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newResourceNotFoundException' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> ResourceNotFoundException
+newResourceNotFoundException'  customize = (ResourceNotFoundException <<< customize) { "Message": Nothing }
 
 
 
 newtype RestoreServerRequest = RestoreServerRequest 
   { "BackupId" :: (BackupId)
   , "ServerName" :: (ServerName)
-  , "InstanceType" :: NullOrUndefined (String)
-  , "KeyPair" :: NullOrUndefined (KeyPair)
+  , "InstanceType" :: Maybe (String)
+  , "KeyPair" :: Maybe (KeyPair)
   }
 derive instance newtypeRestoreServerRequest :: Newtype RestoreServerRequest _
 derive instance repGenericRestoreServerRequest :: Generic RestoreServerRequest _
@@ -840,12 +839,12 @@ instance encodeRestoreServerRequest :: Encode RestoreServerRequest where encode 
 
 -- | Constructs RestoreServerRequest from required parameters
 newRestoreServerRequest :: BackupId -> ServerName -> RestoreServerRequest
-newRestoreServerRequest _BackupId _ServerName = RestoreServerRequest { "BackupId": _BackupId, "ServerName": _ServerName, "InstanceType": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing) }
+newRestoreServerRequest _BackupId _ServerName = RestoreServerRequest { "BackupId": _BackupId, "ServerName": _ServerName, "InstanceType": Nothing, "KeyPair": Nothing }
 
 -- | Constructs RestoreServerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newRestoreServerRequest' :: BackupId -> ServerName -> ( { "BackupId" :: (BackupId) , "ServerName" :: (ServerName) , "InstanceType" :: NullOrUndefined (String) , "KeyPair" :: NullOrUndefined (KeyPair) } -> {"BackupId" :: (BackupId) , "ServerName" :: (ServerName) , "InstanceType" :: NullOrUndefined (String) , "KeyPair" :: NullOrUndefined (KeyPair) } ) -> RestoreServerRequest
-newRestoreServerRequest' _BackupId _ServerName customize = (RestoreServerRequest <<< customize) { "BackupId": _BackupId, "ServerName": _ServerName, "InstanceType": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing) }
+newRestoreServerRequest' :: BackupId -> ServerName -> ( { "BackupId" :: (BackupId) , "ServerName" :: (ServerName) , "InstanceType" :: Maybe (String) , "KeyPair" :: Maybe (KeyPair) } -> {"BackupId" :: (BackupId) , "ServerName" :: (ServerName) , "InstanceType" :: Maybe (String) , "KeyPair" :: Maybe (KeyPair) } ) -> RestoreServerRequest
+newRestoreServerRequest' _BackupId _ServerName customize = (RestoreServerRequest <<< customize) { "BackupId": _BackupId, "ServerName": _ServerName, "InstanceType": Nothing, "KeyPair": Nothing }
 
 
 
@@ -860,29 +859,29 @@ instance encodeRestoreServerResponse :: Encode RestoreServerResponse where encod
 
 -- | <p>Describes a configuration management server. </p>
 newtype Server = Server 
-  { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean)
-  , "BackupRetentionCount" :: NullOrUndefined (Int)
-  , "ServerName" :: NullOrUndefined (String)
-  , "CreatedAt" :: NullOrUndefined (Types.Timestamp)
-  , "CloudFormationStackArn" :: NullOrUndefined (String)
-  , "DisableAutomatedBackup" :: NullOrUndefined (Boolean)
-  , "Endpoint" :: NullOrUndefined (String)
-  , "Engine" :: NullOrUndefined (String)
-  , "EngineModel" :: NullOrUndefined (String)
-  , "EngineAttributes" :: NullOrUndefined (EngineAttributes)
-  , "EngineVersion" :: NullOrUndefined (String)
-  , "InstanceProfileArn" :: NullOrUndefined (String)
-  , "InstanceType" :: NullOrUndefined (String)
-  , "KeyPair" :: NullOrUndefined (String)
-  , "MaintenanceStatus" :: NullOrUndefined (MaintenanceStatus)
-  , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "SecurityGroupIds" :: NullOrUndefined (Strings)
-  , "ServiceRoleArn" :: NullOrUndefined (String)
-  , "Status" :: NullOrUndefined (ServerStatus)
-  , "StatusReason" :: NullOrUndefined (String)
-  , "SubnetIds" :: NullOrUndefined (Strings)
-  , "ServerArn" :: NullOrUndefined (String)
+  { "AssociatePublicIpAddress" :: Maybe (Boolean)
+  , "BackupRetentionCount" :: Maybe (Int)
+  , "ServerName" :: Maybe (String)
+  , "CreatedAt" :: Maybe (Types.Timestamp)
+  , "CloudFormationStackArn" :: Maybe (String)
+  , "DisableAutomatedBackup" :: Maybe (Boolean)
+  , "Endpoint" :: Maybe (String)
+  , "Engine" :: Maybe (String)
+  , "EngineModel" :: Maybe (String)
+  , "EngineAttributes" :: Maybe (EngineAttributes)
+  , "EngineVersion" :: Maybe (String)
+  , "InstanceProfileArn" :: Maybe (String)
+  , "InstanceType" :: Maybe (String)
+  , "KeyPair" :: Maybe (String)
+  , "MaintenanceStatus" :: Maybe (MaintenanceStatus)
+  , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition)
+  , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition)
+  , "SecurityGroupIds" :: Maybe (Strings)
+  , "ServiceRoleArn" :: Maybe (String)
+  , "Status" :: Maybe (ServerStatus)
+  , "StatusReason" :: Maybe (String)
+  , "SubnetIds" :: Maybe (Strings)
+  , "ServerArn" :: Maybe (String)
   }
 derive instance newtypeServer :: Newtype Server _
 derive instance repGenericServer :: Generic Server _
@@ -892,21 +891,21 @@ instance encodeServer :: Encode Server where encode = genericEncode options
 
 -- | Constructs Server from required parameters
 newServer :: Server
-newServer  = Server { "AssociatePublicIpAddress": (NullOrUndefined Nothing), "BackupRetentionCount": (NullOrUndefined Nothing), "CloudFormationStackArn": (NullOrUndefined Nothing), "CreatedAt": (NullOrUndefined Nothing), "DisableAutomatedBackup": (NullOrUndefined Nothing), "Endpoint": (NullOrUndefined Nothing), "Engine": (NullOrUndefined Nothing), "EngineAttributes": (NullOrUndefined Nothing), "EngineModel": (NullOrUndefined Nothing), "EngineVersion": (NullOrUndefined Nothing), "InstanceProfileArn": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing), "MaintenanceStatus": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing), "SecurityGroupIds": (NullOrUndefined Nothing), "ServerArn": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing), "ServiceRoleArn": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusReason": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing) }
+newServer  = Server { "AssociatePublicIpAddress": Nothing, "BackupRetentionCount": Nothing, "CloudFormationStackArn": Nothing, "CreatedAt": Nothing, "DisableAutomatedBackup": Nothing, "Endpoint": Nothing, "Engine": Nothing, "EngineAttributes": Nothing, "EngineModel": Nothing, "EngineVersion": Nothing, "InstanceProfileArn": Nothing, "InstanceType": Nothing, "KeyPair": Nothing, "MaintenanceStatus": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing, "SecurityGroupIds": Nothing, "ServerArn": Nothing, "ServerName": Nothing, "ServiceRoleArn": Nothing, "Status": Nothing, "StatusReason": Nothing, "SubnetIds": Nothing }
 
 -- | Constructs Server's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServer' :: ( { "AssociatePublicIpAddress" :: NullOrUndefined (Boolean) , "BackupRetentionCount" :: NullOrUndefined (Int) , "ServerName" :: NullOrUndefined (String) , "CreatedAt" :: NullOrUndefined (Types.Timestamp) , "CloudFormationStackArn" :: NullOrUndefined (String) , "DisableAutomatedBackup" :: NullOrUndefined (Boolean) , "Endpoint" :: NullOrUndefined (String) , "Engine" :: NullOrUndefined (String) , "EngineModel" :: NullOrUndefined (String) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) , "EngineVersion" :: NullOrUndefined (String) , "InstanceProfileArn" :: NullOrUndefined (String) , "InstanceType" :: NullOrUndefined (String) , "KeyPair" :: NullOrUndefined (String) , "MaintenanceStatus" :: NullOrUndefined (MaintenanceStatus) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) , "SecurityGroupIds" :: NullOrUndefined (Strings) , "ServiceRoleArn" :: NullOrUndefined (String) , "Status" :: NullOrUndefined (ServerStatus) , "StatusReason" :: NullOrUndefined (String) , "SubnetIds" :: NullOrUndefined (Strings) , "ServerArn" :: NullOrUndefined (String) } -> {"AssociatePublicIpAddress" :: NullOrUndefined (Boolean) , "BackupRetentionCount" :: NullOrUndefined (Int) , "ServerName" :: NullOrUndefined (String) , "CreatedAt" :: NullOrUndefined (Types.Timestamp) , "CloudFormationStackArn" :: NullOrUndefined (String) , "DisableAutomatedBackup" :: NullOrUndefined (Boolean) , "Endpoint" :: NullOrUndefined (String) , "Engine" :: NullOrUndefined (String) , "EngineModel" :: NullOrUndefined (String) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) , "EngineVersion" :: NullOrUndefined (String) , "InstanceProfileArn" :: NullOrUndefined (String) , "InstanceType" :: NullOrUndefined (String) , "KeyPair" :: NullOrUndefined (String) , "MaintenanceStatus" :: NullOrUndefined (MaintenanceStatus) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) , "SecurityGroupIds" :: NullOrUndefined (Strings) , "ServiceRoleArn" :: NullOrUndefined (String) , "Status" :: NullOrUndefined (ServerStatus) , "StatusReason" :: NullOrUndefined (String) , "SubnetIds" :: NullOrUndefined (Strings) , "ServerArn" :: NullOrUndefined (String) } ) -> Server
-newServer'  customize = (Server <<< customize) { "AssociatePublicIpAddress": (NullOrUndefined Nothing), "BackupRetentionCount": (NullOrUndefined Nothing), "CloudFormationStackArn": (NullOrUndefined Nothing), "CreatedAt": (NullOrUndefined Nothing), "DisableAutomatedBackup": (NullOrUndefined Nothing), "Endpoint": (NullOrUndefined Nothing), "Engine": (NullOrUndefined Nothing), "EngineAttributes": (NullOrUndefined Nothing), "EngineModel": (NullOrUndefined Nothing), "EngineVersion": (NullOrUndefined Nothing), "InstanceProfileArn": (NullOrUndefined Nothing), "InstanceType": (NullOrUndefined Nothing), "KeyPair": (NullOrUndefined Nothing), "MaintenanceStatus": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing), "SecurityGroupIds": (NullOrUndefined Nothing), "ServerArn": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing), "ServiceRoleArn": (NullOrUndefined Nothing), "Status": (NullOrUndefined Nothing), "StatusReason": (NullOrUndefined Nothing), "SubnetIds": (NullOrUndefined Nothing) }
+newServer' :: ( { "AssociatePublicIpAddress" :: Maybe (Boolean) , "BackupRetentionCount" :: Maybe (Int) , "ServerName" :: Maybe (String) , "CreatedAt" :: Maybe (Types.Timestamp) , "CloudFormationStackArn" :: Maybe (String) , "DisableAutomatedBackup" :: Maybe (Boolean) , "Endpoint" :: Maybe (String) , "Engine" :: Maybe (String) , "EngineModel" :: Maybe (String) , "EngineAttributes" :: Maybe (EngineAttributes) , "EngineVersion" :: Maybe (String) , "InstanceProfileArn" :: Maybe (String) , "InstanceType" :: Maybe (String) , "KeyPair" :: Maybe (String) , "MaintenanceStatus" :: Maybe (MaintenanceStatus) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) , "SecurityGroupIds" :: Maybe (Strings) , "ServiceRoleArn" :: Maybe (String) , "Status" :: Maybe (ServerStatus) , "StatusReason" :: Maybe (String) , "SubnetIds" :: Maybe (Strings) , "ServerArn" :: Maybe (String) } -> {"AssociatePublicIpAddress" :: Maybe (Boolean) , "BackupRetentionCount" :: Maybe (Int) , "ServerName" :: Maybe (String) , "CreatedAt" :: Maybe (Types.Timestamp) , "CloudFormationStackArn" :: Maybe (String) , "DisableAutomatedBackup" :: Maybe (Boolean) , "Endpoint" :: Maybe (String) , "Engine" :: Maybe (String) , "EngineModel" :: Maybe (String) , "EngineAttributes" :: Maybe (EngineAttributes) , "EngineVersion" :: Maybe (String) , "InstanceProfileArn" :: Maybe (String) , "InstanceType" :: Maybe (String) , "KeyPair" :: Maybe (String) , "MaintenanceStatus" :: Maybe (MaintenanceStatus) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) , "SecurityGroupIds" :: Maybe (Strings) , "ServiceRoleArn" :: Maybe (String) , "Status" :: Maybe (ServerStatus) , "StatusReason" :: Maybe (String) , "SubnetIds" :: Maybe (Strings) , "ServerArn" :: Maybe (String) } ) -> Server
+newServer'  customize = (Server <<< customize) { "AssociatePublicIpAddress": Nothing, "BackupRetentionCount": Nothing, "CloudFormationStackArn": Nothing, "CreatedAt": Nothing, "DisableAutomatedBackup": Nothing, "Endpoint": Nothing, "Engine": Nothing, "EngineAttributes": Nothing, "EngineModel": Nothing, "EngineVersion": Nothing, "InstanceProfileArn": Nothing, "InstanceType": Nothing, "KeyPair": Nothing, "MaintenanceStatus": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing, "SecurityGroupIds": Nothing, "ServerArn": Nothing, "ServerName": Nothing, "ServiceRoleArn": Nothing, "Status": Nothing, "StatusReason": Nothing, "SubnetIds": Nothing }
 
 
 
 -- | <p>An event that is related to the server, such as the start of maintenance or backup. </p>
 newtype ServerEvent = ServerEvent 
-  { "CreatedAt" :: NullOrUndefined (Types.Timestamp)
-  , "ServerName" :: NullOrUndefined (String)
-  , "Message" :: NullOrUndefined (String)
-  , "LogUrl" :: NullOrUndefined (String)
+  { "CreatedAt" :: Maybe (Types.Timestamp)
+  , "ServerName" :: Maybe (String)
+  , "Message" :: Maybe (String)
+  , "LogUrl" :: Maybe (String)
   }
 derive instance newtypeServerEvent :: Newtype ServerEvent _
 derive instance repGenericServerEvent :: Generic ServerEvent _
@@ -916,12 +915,12 @@ instance encodeServerEvent :: Encode ServerEvent where encode = genericEncode op
 
 -- | Constructs ServerEvent from required parameters
 newServerEvent :: ServerEvent
-newServerEvent  = ServerEvent { "CreatedAt": (NullOrUndefined Nothing), "LogUrl": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing) }
+newServerEvent  = ServerEvent { "CreatedAt": Nothing, "LogUrl": Nothing, "Message": Nothing, "ServerName": Nothing }
 
 -- | Constructs ServerEvent's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newServerEvent' :: ( { "CreatedAt" :: NullOrUndefined (Types.Timestamp) , "ServerName" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) , "LogUrl" :: NullOrUndefined (String) } -> {"CreatedAt" :: NullOrUndefined (Types.Timestamp) , "ServerName" :: NullOrUndefined (String) , "Message" :: NullOrUndefined (String) , "LogUrl" :: NullOrUndefined (String) } ) -> ServerEvent
-newServerEvent'  customize = (ServerEvent <<< customize) { "CreatedAt": (NullOrUndefined Nothing), "LogUrl": (NullOrUndefined Nothing), "Message": (NullOrUndefined Nothing), "ServerName": (NullOrUndefined Nothing) }
+newServerEvent' :: ( { "CreatedAt" :: Maybe (Types.Timestamp) , "ServerName" :: Maybe (String) , "Message" :: Maybe (String) , "LogUrl" :: Maybe (String) } -> {"CreatedAt" :: Maybe (Types.Timestamp) , "ServerName" :: Maybe (String) , "Message" :: Maybe (String) , "LogUrl" :: Maybe (String) } ) -> ServerEvent
+newServerEvent'  customize = (ServerEvent <<< customize) { "CreatedAt": Nothing, "LogUrl": Nothing, "Message": Nothing, "ServerName": Nothing }
 
 
 
@@ -972,7 +971,7 @@ instance encodeServiceRoleArn :: Encode ServiceRoleArn where encode = genericEnc
 
 newtype StartMaintenanceRequest = StartMaintenanceRequest 
   { "ServerName" :: (ServerName)
-  , "EngineAttributes" :: NullOrUndefined (EngineAttributes)
+  , "EngineAttributes" :: Maybe (EngineAttributes)
   }
 derive instance newtypeStartMaintenanceRequest :: Newtype StartMaintenanceRequest _
 derive instance repGenericStartMaintenanceRequest :: Generic StartMaintenanceRequest _
@@ -982,17 +981,17 @@ instance encodeStartMaintenanceRequest :: Encode StartMaintenanceRequest where e
 
 -- | Constructs StartMaintenanceRequest from required parameters
 newStartMaintenanceRequest :: ServerName -> StartMaintenanceRequest
-newStartMaintenanceRequest _ServerName = StartMaintenanceRequest { "ServerName": _ServerName, "EngineAttributes": (NullOrUndefined Nothing) }
+newStartMaintenanceRequest _ServerName = StartMaintenanceRequest { "ServerName": _ServerName, "EngineAttributes": Nothing }
 
 -- | Constructs StartMaintenanceRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartMaintenanceRequest' :: ServerName -> ( { "ServerName" :: (ServerName) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) } -> {"ServerName" :: (ServerName) , "EngineAttributes" :: NullOrUndefined (EngineAttributes) } ) -> StartMaintenanceRequest
-newStartMaintenanceRequest' _ServerName customize = (StartMaintenanceRequest <<< customize) { "ServerName": _ServerName, "EngineAttributes": (NullOrUndefined Nothing) }
+newStartMaintenanceRequest' :: ServerName -> ( { "ServerName" :: (ServerName) , "EngineAttributes" :: Maybe (EngineAttributes) } -> {"ServerName" :: (ServerName) , "EngineAttributes" :: Maybe (EngineAttributes) } ) -> StartMaintenanceRequest
+newStartMaintenanceRequest' _ServerName customize = (StartMaintenanceRequest <<< customize) { "ServerName": _ServerName, "EngineAttributes": Nothing }
 
 
 
 newtype StartMaintenanceResponse = StartMaintenanceResponse 
-  { "Server" :: NullOrUndefined (Server)
+  { "Server" :: Maybe (Server)
   }
 derive instance newtypeStartMaintenanceResponse :: Newtype StartMaintenanceResponse _
 derive instance repGenericStartMaintenanceResponse :: Generic StartMaintenanceResponse _
@@ -1002,12 +1001,12 @@ instance encodeStartMaintenanceResponse :: Encode StartMaintenanceResponse where
 
 -- | Constructs StartMaintenanceResponse from required parameters
 newStartMaintenanceResponse :: StartMaintenanceResponse
-newStartMaintenanceResponse  = StartMaintenanceResponse { "Server": (NullOrUndefined Nothing) }
+newStartMaintenanceResponse  = StartMaintenanceResponse { "Server": Nothing }
 
 -- | Constructs StartMaintenanceResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newStartMaintenanceResponse' :: ( { "Server" :: NullOrUndefined (Server) } -> {"Server" :: NullOrUndefined (Server) } ) -> StartMaintenanceResponse
-newStartMaintenanceResponse'  customize = (StartMaintenanceResponse <<< customize) { "Server": (NullOrUndefined Nothing) }
+newStartMaintenanceResponse' :: ( { "Server" :: Maybe (Server) } -> {"Server" :: Maybe (Server) } ) -> StartMaintenanceResponse
+newStartMaintenanceResponse'  customize = (StartMaintenanceResponse <<< customize) { "Server": Nothing }
 
 
 
@@ -1033,7 +1032,7 @@ instance encodeTimeWindowDefinition :: Encode TimeWindowDefinition where encode 
 newtype UpdateServerEngineAttributesRequest = UpdateServerEngineAttributesRequest 
   { "ServerName" :: (ServerName)
   , "AttributeName" :: (AttributeName)
-  , "AttributeValue" :: NullOrUndefined (AttributeValue)
+  , "AttributeValue" :: Maybe (AttributeValue)
   }
 derive instance newtypeUpdateServerEngineAttributesRequest :: Newtype UpdateServerEngineAttributesRequest _
 derive instance repGenericUpdateServerEngineAttributesRequest :: Generic UpdateServerEngineAttributesRequest _
@@ -1043,17 +1042,17 @@ instance encodeUpdateServerEngineAttributesRequest :: Encode UpdateServerEngineA
 
 -- | Constructs UpdateServerEngineAttributesRequest from required parameters
 newUpdateServerEngineAttributesRequest :: AttributeName -> ServerName -> UpdateServerEngineAttributesRequest
-newUpdateServerEngineAttributesRequest _AttributeName _ServerName = UpdateServerEngineAttributesRequest { "AttributeName": _AttributeName, "ServerName": _ServerName, "AttributeValue": (NullOrUndefined Nothing) }
+newUpdateServerEngineAttributesRequest _AttributeName _ServerName = UpdateServerEngineAttributesRequest { "AttributeName": _AttributeName, "ServerName": _ServerName, "AttributeValue": Nothing }
 
 -- | Constructs UpdateServerEngineAttributesRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServerEngineAttributesRequest' :: AttributeName -> ServerName -> ( { "ServerName" :: (ServerName) , "AttributeName" :: (AttributeName) , "AttributeValue" :: NullOrUndefined (AttributeValue) } -> {"ServerName" :: (ServerName) , "AttributeName" :: (AttributeName) , "AttributeValue" :: NullOrUndefined (AttributeValue) } ) -> UpdateServerEngineAttributesRequest
-newUpdateServerEngineAttributesRequest' _AttributeName _ServerName customize = (UpdateServerEngineAttributesRequest <<< customize) { "AttributeName": _AttributeName, "ServerName": _ServerName, "AttributeValue": (NullOrUndefined Nothing) }
+newUpdateServerEngineAttributesRequest' :: AttributeName -> ServerName -> ( { "ServerName" :: (ServerName) , "AttributeName" :: (AttributeName) , "AttributeValue" :: Maybe (AttributeValue) } -> {"ServerName" :: (ServerName) , "AttributeName" :: (AttributeName) , "AttributeValue" :: Maybe (AttributeValue) } ) -> UpdateServerEngineAttributesRequest
+newUpdateServerEngineAttributesRequest' _AttributeName _ServerName customize = (UpdateServerEngineAttributesRequest <<< customize) { "AttributeName": _AttributeName, "ServerName": _ServerName, "AttributeValue": Nothing }
 
 
 
 newtype UpdateServerEngineAttributesResponse = UpdateServerEngineAttributesResponse 
-  { "Server" :: NullOrUndefined (Server)
+  { "Server" :: Maybe (Server)
   }
 derive instance newtypeUpdateServerEngineAttributesResponse :: Newtype UpdateServerEngineAttributesResponse _
 derive instance repGenericUpdateServerEngineAttributesResponse :: Generic UpdateServerEngineAttributesResponse _
@@ -1063,21 +1062,21 @@ instance encodeUpdateServerEngineAttributesResponse :: Encode UpdateServerEngine
 
 -- | Constructs UpdateServerEngineAttributesResponse from required parameters
 newUpdateServerEngineAttributesResponse :: UpdateServerEngineAttributesResponse
-newUpdateServerEngineAttributesResponse  = UpdateServerEngineAttributesResponse { "Server": (NullOrUndefined Nothing) }
+newUpdateServerEngineAttributesResponse  = UpdateServerEngineAttributesResponse { "Server": Nothing }
 
 -- | Constructs UpdateServerEngineAttributesResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServerEngineAttributesResponse' :: ( { "Server" :: NullOrUndefined (Server) } -> {"Server" :: NullOrUndefined (Server) } ) -> UpdateServerEngineAttributesResponse
-newUpdateServerEngineAttributesResponse'  customize = (UpdateServerEngineAttributesResponse <<< customize) { "Server": (NullOrUndefined Nothing) }
+newUpdateServerEngineAttributesResponse' :: ( { "Server" :: Maybe (Server) } -> {"Server" :: Maybe (Server) } ) -> UpdateServerEngineAttributesResponse
+newUpdateServerEngineAttributesResponse'  customize = (UpdateServerEngineAttributesResponse <<< customize) { "Server": Nothing }
 
 
 
 newtype UpdateServerRequest = UpdateServerRequest 
-  { "DisableAutomatedBackup" :: NullOrUndefined (Boolean)
-  , "BackupRetentionCount" :: NullOrUndefined (Int)
+  { "DisableAutomatedBackup" :: Maybe (Boolean)
+  , "BackupRetentionCount" :: Maybe (Int)
   , "ServerName" :: (ServerName)
-  , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition)
-  , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition)
+  , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition)
+  , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition)
   }
 derive instance newtypeUpdateServerRequest :: Newtype UpdateServerRequest _
 derive instance repGenericUpdateServerRequest :: Generic UpdateServerRequest _
@@ -1087,17 +1086,17 @@ instance encodeUpdateServerRequest :: Encode UpdateServerRequest where encode = 
 
 -- | Constructs UpdateServerRequest from required parameters
 newUpdateServerRequest :: ServerName -> UpdateServerRequest
-newUpdateServerRequest _ServerName = UpdateServerRequest { "ServerName": _ServerName, "BackupRetentionCount": (NullOrUndefined Nothing), "DisableAutomatedBackup": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing) }
+newUpdateServerRequest _ServerName = UpdateServerRequest { "ServerName": _ServerName, "BackupRetentionCount": Nothing, "DisableAutomatedBackup": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing }
 
 -- | Constructs UpdateServerRequest's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServerRequest' :: ServerName -> ( { "DisableAutomatedBackup" :: NullOrUndefined (Boolean) , "BackupRetentionCount" :: NullOrUndefined (Int) , "ServerName" :: (ServerName) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) } -> {"DisableAutomatedBackup" :: NullOrUndefined (Boolean) , "BackupRetentionCount" :: NullOrUndefined (Int) , "ServerName" :: (ServerName) , "PreferredMaintenanceWindow" :: NullOrUndefined (TimeWindowDefinition) , "PreferredBackupWindow" :: NullOrUndefined (TimeWindowDefinition) } ) -> UpdateServerRequest
-newUpdateServerRequest' _ServerName customize = (UpdateServerRequest <<< customize) { "ServerName": _ServerName, "BackupRetentionCount": (NullOrUndefined Nothing), "DisableAutomatedBackup": (NullOrUndefined Nothing), "PreferredBackupWindow": (NullOrUndefined Nothing), "PreferredMaintenanceWindow": (NullOrUndefined Nothing) }
+newUpdateServerRequest' :: ServerName -> ( { "DisableAutomatedBackup" :: Maybe (Boolean) , "BackupRetentionCount" :: Maybe (Int) , "ServerName" :: (ServerName) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) } -> {"DisableAutomatedBackup" :: Maybe (Boolean) , "BackupRetentionCount" :: Maybe (Int) , "ServerName" :: (ServerName) , "PreferredMaintenanceWindow" :: Maybe (TimeWindowDefinition) , "PreferredBackupWindow" :: Maybe (TimeWindowDefinition) } ) -> UpdateServerRequest
+newUpdateServerRequest' _ServerName customize = (UpdateServerRequest <<< customize) { "ServerName": _ServerName, "BackupRetentionCount": Nothing, "DisableAutomatedBackup": Nothing, "PreferredBackupWindow": Nothing, "PreferredMaintenanceWindow": Nothing }
 
 
 
 newtype UpdateServerResponse = UpdateServerResponse 
-  { "Server" :: NullOrUndefined (Server)
+  { "Server" :: Maybe (Server)
   }
 derive instance newtypeUpdateServerResponse :: Newtype UpdateServerResponse _
 derive instance repGenericUpdateServerResponse :: Generic UpdateServerResponse _
@@ -1107,18 +1106,18 @@ instance encodeUpdateServerResponse :: Encode UpdateServerResponse where encode 
 
 -- | Constructs UpdateServerResponse from required parameters
 newUpdateServerResponse :: UpdateServerResponse
-newUpdateServerResponse  = UpdateServerResponse { "Server": (NullOrUndefined Nothing) }
+newUpdateServerResponse  = UpdateServerResponse { "Server": Nothing }
 
 -- | Constructs UpdateServerResponse's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newUpdateServerResponse' :: ( { "Server" :: NullOrUndefined (Server) } -> {"Server" :: NullOrUndefined (Server) } ) -> UpdateServerResponse
-newUpdateServerResponse'  customize = (UpdateServerResponse <<< customize) { "Server": (NullOrUndefined Nothing) }
+newUpdateServerResponse' :: ( { "Server" :: Maybe (Server) } -> {"Server" :: Maybe (Server) } ) -> UpdateServerResponse
+newUpdateServerResponse'  customize = (UpdateServerResponse <<< customize) { "Server": Nothing }
 
 
 
 -- | <p>One or more of the provided request parameters are not valid. </p>
 newtype ValidationException = ValidationException 
-  { "Message" :: NullOrUndefined (String)
+  { "Message" :: Maybe (String)
   }
 derive instance newtypeValidationException :: Newtype ValidationException _
 derive instance repGenericValidationException :: Generic ValidationException _
@@ -1128,10 +1127,10 @@ instance encodeValidationException :: Encode ValidationException where encode = 
 
 -- | Constructs ValidationException from required parameters
 newValidationException :: ValidationException
-newValidationException  = ValidationException { "Message": (NullOrUndefined Nothing) }
+newValidationException  = ValidationException { "Message": Nothing }
 
 -- | Constructs ValidationException's fields from required parameters
 --   This may be useful if you need to immediately overwrite some of the optional values
-newValidationException' :: ( { "Message" :: NullOrUndefined (String) } -> {"Message" :: NullOrUndefined (String) } ) -> ValidationException
-newValidationException'  customize = (ValidationException <<< customize) { "Message": (NullOrUndefined Nothing) }
+newValidationException' :: ( { "Message" :: Maybe (String) } -> {"Message" :: Maybe (String) } ) -> ValidationException
+newValidationException'  customize = (ValidationException <<< customize) { "Message": Nothing }
 
